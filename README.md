@@ -43,4 +43,4 @@ This will watch the project directory and restart as necessary.
   - Estimated reading time.
   - Author bio section.
 - [*] **Tags & Categories:** Filter posts by topic.
-- [ ] **SEO:** Dynamic meta tags and Open Graph images.
+- [*] **SEO:** Dynamic meta tags and Open Graph images.

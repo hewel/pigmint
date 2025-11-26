@@ -29,7 +29,19 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
   return (
     <>
       <Head>
-        <title>{post.title}</title>
+        <title>{post.title} - PigMint Blog</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content="/logo.svg" />{" "}
+        {/* TODO: Replace with post-specific image if available */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://pigmint.dev/${post.slug}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content="/logo.svg" />{" "}
+        {/* TODO: Replace with post-specific image if available */}
       </Head>
       <ThemeToggle />
       <div class="px-4 py-12 mx-auto max-w-screen-md">

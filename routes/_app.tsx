@@ -8,6 +8,25 @@ export default define.page(function App({ Component }) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>pigmint</title>
+        <meta
+          name="description"
+          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+        />
+        <meta property="og:title" content="PigMint Blog" />
+        <meta
+          property="og:description"
+          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+        />
+        <meta property="og:image" content="/logo.svg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pigmint.dev" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PigMint Blog" />
+        <meta
+          name="twitter:description"
+          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+        />
+        <meta name="twitter:image" content="/logo.svg" />
         <meta name="view-transition" content="same-origin" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

@@ -35,7 +35,31 @@ export default define.page(function Home({ data }: PageProps<Data>) {
   return (
     <>
       <Head>
-        <title>My Blog</title>
+        <title>PigMint Blog - A Fresh Perspective on Web Dev & Design</title>
+        <meta
+          name="description"
+          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+        />
+        <meta
+          property="og:title"
+          content="PigMint Blog - A Fresh Perspective on Web Dev & Design"
+        />
+        <meta
+          property="og:description"
+          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+        />
+        <meta property="og:image" content="/logo.svg" />
+        <meta property="og:url" content="https://pigmint.dev" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="PigMint Blog - A Fresh Perspective on Web Dev & Design"
+        />
+        <meta
+          name="twitter:description"
+          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+        />
+        <meta name="twitter:image" content="/logo.svg" />
       </Head>
       <ThemeToggle />
       <div class="px-4 py-16 mx-auto max-w-screen-lg flex flex-col items-center justify-center min-h-[calc(100vh-64px)]">
@@ -88,7 +112,13 @@ export default define.page(function Home({ data }: PageProps<Data>) {
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-screen-xl">
                 {posts.map((post, index) => {
                   const colorClass = cardColors[index % cardColors.length];
-                  return <PostCard key={post.slug} post={post} colorClass={colorClass} />;
+                  return (
+                    <PostCard
+                      key={post.slug}
+                      post={post}
+                      colorClass={colorClass}
+                    />
+                  );
                 })}
               </div>
             </>
