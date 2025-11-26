@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Nunito:wght@400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&family=Nunito:wght@400;600;700;800&display=swap");
 
 @import "tailwindcss";
 
 @theme {
   /* Colors */
-  --color-whalies-bg: #E0F2FE;
-  --color-whalies-DEFAULT: #67E8F9;
-  --color-whalies-dark: #0E7490;
-  --color-whalies-navy: #16213E;
+  --color-whalies-bg: #e0f2fe;
+  --color-whalies-DEFAULT: #67e8f9;
+  --color-whalies-dark: #0e7490;
+  --color-whalies-navy: #16213e;
 
-  --color-pastel-pink: #F9A8D4;
-  --color-pastel-yellow: #FDE047;
-  --color-pastel-purple: #C4B5FD;
-  --color-pastel-mint: #6EE7B7;
-  --color-pastel-blue: #7DD3FC;
+  --color-pastel-pink: #f9a8d4;
+  --color-pastel-yellow: #fde047;
+  --color-pastel-purple: #c4b5fd;
+  --color-pastel-mint: #6ee7b7;
+  --color-pastel-blue: #7dd3fc;
 
   /* Fonts */
   --font-cartoon: "Fredoka", "Varela Round", sans-serif;
@@ -24,9 +24,9 @@
   --radius-button: 1.5rem;
 
   /* Shadows */
-  --shadow-cartoon: 0px 4px 0px 0px #16213E;
-  --shadow-cartoon-hover: 0px 2px 0px 0px #16213E;
-  --shadow-card: 0px 8px 0px 0px rgba(0,0,0,0.1);
+  --shadow-cartoon: 0px 4px 0px 0px #16213e;
+  --shadow-cartoon-hover: 0px 2px 0px 0px #16213e;
+  --shadow-card: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -37,12 +37,32 @@ h1, h2, h3, h4, h5, h6 {
   @apply font-cartoon;
 }
 
-.markdown-body h1 { @apply text-4xl mb-4; }
-.markdown-body h2 { @apply text-3xl mb-3 mt-6; }
-.markdown-body h3 { @apply text-2xl mb-2 mt-4; }
-.markdown-body p { @apply mb-4 leading-relaxed; }
-.markdown-body ul { @apply list-disc list-inside mb-4; }
-.markdown-body ol { @apply list-decimal list-inside mb-4; }
-.markdown-body a { @apply text-whalies-DEFAULT underline decoration-2 decoration-whalies-dark hover:decoration-whalies-DEFAULT; }
-.markdown-body code { @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono; }
-.markdown-body pre { @apply bg-whalies-navy text-white p-4 rounded-4xl overflow-x-auto mb-4 border-2 border-whalies-navy shadow-cartoon; }
+.markdown-body h1 {
+  @apply text-4xl mb-4;
+}
+.markdown-body h2 {
+  @apply text-3xl mb-3 mt-6;
+}
+.markdown-body h3 {
+  @apply text-2xl mb-2 mt-4;
+}
+.markdown-body p {
+  @apply mb-4 leading-relaxed;
+}
+.markdown-body ul {
+  @apply list-disc list-inside mb-4;
+}
+.markdown-body ol {
+  @apply list-decimal list-inside mb-4;
+}
+.markdown-body a {
+  @apply text-whalies-DEFAULT underline decoration-2 decoration-whalies-dark
+    hover:decoration-whalies-DEFAULT;
+}
+.markdown-body code {
+  @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono;
+}
+.markdown-body pre {
+  @apply bg-whalies-navy text-white p-4 rounded-4xl overflow-x-auto mb-4
+    border-2 border-whalies-navy shadow-cartoon;
+}

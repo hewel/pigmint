@@ -19,20 +19,25 @@ This will watch the project directory and restart as necessary.
 ## Project Roadmap: Modern Blog
 
 ### 1. Core Architecture
-- [*] **Styling Engine:** Integrate **Tailwind CSS** for rapid, modern UI development.
+
+- [*] **Styling Engine:** Integrate **Tailwind CSS** for rapid, modern UI
+  development.
 - [*] **Content Management:** Implement a Markdown-based system for blog posts.
 
 ### 2. UI/UX Features
-- [ ] **Responsive Design:** Mobile-first layout ensuring readability on all devices.
+
+- [ ] **Responsive Design:** Mobile-first layout ensuring readability on all
+      devices.
 - [ ] **Dark/Light Mode:** System-aware theme toggling with manual override.
 - [ ] **Modern Typography:** Clean, accessible font stack.
 - [ ] **Animations:** Subtle view transitions and hover effects.
 
 ### 3. Functional Features
+
 - [ ] **Landing Page:** Hero section, followed by a grid of recent posts.
 - [ ] **Article View:** Distraction-free reading experience with:
-    - Syntax highlighting for code blocks.
-    - Estimated reading time.
-    - Author bio section.
+  - Syntax highlighting for code blocks.
+  - Estimated reading time.
+  - Author bio section.
 - [ ] **Tags & Categories:** Filter posts by topic.
 - [ ] **SEO:** Dynamic meta tags and Open Graph images.
