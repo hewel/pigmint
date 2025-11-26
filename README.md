@@ -23,7 +23,9 @@ This will watch the project directory and restart as necessary.
 - [*] **Styling Engine:** Integrate **Tailwind CSS** for rapid, modern UI
   development.
 - [*] **Content Management:** Implement a Markdown-based system for blog posts.
-  - [x] **Advanced Rendering:** Use `marked` to parse Markdown to lexer then render to preact components and rehype-highlight for syntax highlighting.
+  - [x] **Advanced Rendering:** Use `marked` to parse Markdown to lexer then
+        render to preact components and rehype-highlight for syntax
+        highlighting.
 
 ### 2. UI/UX Features
 

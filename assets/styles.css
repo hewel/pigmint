@@ -77,10 +77,10 @@ h1, h2, h3, h4, h5, h6 {
   @apply mb-4 leading-relaxed dark:text-gray-300;
 }
 .markdown-body ul {
-  @apply list-disc list-inside mb-4 dark:text-gray-300;
+  @apply list-disc list-outside pl-5 mb-4 dark:text-gray-300;
 }
 .markdown-body ol {
-  @apply list-decimal list-inside mb-4 dark:text-gray-300;
+  @apply list-decimal list-outside pl-5 mb-4 dark:text-gray-300;
 }
 .markdown-body a {
   @apply text-whalies-dark dark:text-whalies-DEFAULT underline decoration-2
@@ -94,85 +94,4 @@ h1, h2, h3, h4, h5, h6 {
 .markdown-body pre {
   @apply bg-whalies-navy text-white p-4 rounded-4xl overflow-x-auto mb-4
     border-2 border-whalies-navy shadow-cartoon;
-}
-
-/* Prism.js Theme - One Dark inspired */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #abb2bf;
-  text-shadow: none;
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 0.9em;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.6;
-  tab-size: 2;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #5c6370;
-  font-style: italic;
-}
-
-.token.punctuation {
-  color: #abb2bf;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: #e06c75;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #98c379;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #56b6c2;
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-  color: #c678dd;
-}
-
-.token.function,
-.token.class-name {
-  color: #61afef;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-  color: #d19a66;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
 }

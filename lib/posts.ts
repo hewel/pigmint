@@ -16,7 +16,11 @@ export async function getPosts(): Promise<Post[]> {
       const path = `./posts/${dirEntry.name}`;
       const fileContent = await Deno.readTextFile(path);
       const { attrs, body } = extract(fileContent);
-      const attributes = attrs as { title: string; date: string; excerpt: string };
+      const attributes = attrs as {
+        title: string;
+        date: string;
+        excerpt: string;
+      };
       posts.push({
         slug,
         title: attributes.title,
@@ -36,7 +40,11 @@ export async function getPost(slug: string): Promise<Post | null> {
     const path = `./posts/${slug}.md`;
     const fileContent = await Deno.readTextFile(path);
     const { attrs, body } = extract(fileContent);
-    const attributes = attrs as { title: string; date: string; excerpt: string };
+    const attributes = attrs as {
+      title: string;
+      date: string;
+      excerpt: string;
+    };
     return {
       slug,
       title: attributes.title,

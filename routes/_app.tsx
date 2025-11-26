@@ -19,7 +19,7 @@ export default define.page(function App({ Component }) {
         />
         <link
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css"
         />
         <link rel="stylesheet" href="/styles.css" />
         <script
