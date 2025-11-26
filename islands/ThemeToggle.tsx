@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
-import Moon from "npm:@phosphor-icons/react/dist/csr/Moon.es.js";
-import Sun from "npm:@phosphor-icons/react/dist/csr/Sun.es.js";
+import Moon from "npm:@phosphor-icons/react/dist/csr/Moon.es";
+import Sun from "npm:@phosphor-icons/react/dist/csr/Sun.es";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
