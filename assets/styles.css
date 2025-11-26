@@ -2,12 +2,35 @@
 
 @import "tailwindcss";
 
-body {
-  @apply font-body bg-whalies-bg text-whalies-navy;
+@theme {
+  /* Colors */
+  --color-whalies-bg: #E0F2FE;
+  --color-whalies-DEFAULT: #67E8F9;
+  --color-whalies-dark: #0E7490;
+  --color-whalies-navy: #16213E;
+
+  --color-pastel-pink: #F9A8D4;
+  --color-pastel-yellow: #FDE047;
+  --color-pastel-purple: #C4B5FD;
+  --color-pastel-mint: #6EE7B7;
+  --color-pastel-blue: #7DD3FC;
+
+  /* Fonts */
+  --font-cartoon: "Fredoka", "Varela Round", sans-serif;
+  --font-body: "Nunito", sans-serif;
+
+  /* Border Radius */
+  --radius-4xl: 2rem;
+  --radius-button: 1.5rem;
+
+  /* Shadows */
+  --shadow-cartoon: 0px 4px 0px 0px #16213E;
+  --shadow-cartoon-hover: 0px 2px 0px 0px #16213E;
+  --shadow-card: 0px 8px 0px 0px rgba(0,0,0,0.1);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-cartoon;
+body {
+  @apply font-body bg-whalies-bg text-whalies-navy;
 }
 
 h1, h2, h3, h4, h5, h6 {
