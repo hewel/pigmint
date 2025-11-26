@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "{routes,islands,components}/**/*.{ts,tsx}",
@@ -31,7 +32,7 @@ export default {
         cartoon: ['"Fredoka"', '"Varela Round"', 'sans-serif'], // For Headings
         body: ['"Nunito"', 'sans-serif'], // For Body text
       },
-      // Shadows - Key Element: "Hard Shadows" (No blur)
+      // Shadows - Key Element: "Hard Shadows" (No blur)  Using rgba with 0.1 for card shadow to match the softer look, otherwise it's cartoonish black
       boxShadow: {
         'cartoon': '0px 4px 0px 0px #16213E',      // Standard hard shadow
         'cartoon-hover': '0px 2px 0px 0px #16213E', // Pressed state (smaller shadow)
