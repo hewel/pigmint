@@ -78,12 +78,20 @@ export async function getPost(slug: string): Promise<Post | null> {
       tags?: string[];
       author?: string;
     };
+
+    let processedBody = body;
+    // Remove the title from the body if it's the first heading
+    const titleHeading = `# ${attributes.title}`;
+    if (processedBody.startsWith(titleHeading)) {
+      processedBody = processedBody.substring(titleHeading.length).trim();
+    }
+
     return {
       slug,
       title: attributes.title,
       date: attributes.date,
       excerpt: attributes.excerpt,
-      content: body,
+      content: processedBody, // Return raw markdown
       readingTime: calculateReadingTime(body),
       tags: attributes.tags || [],
       author: attributes.author || "Anonymous",
