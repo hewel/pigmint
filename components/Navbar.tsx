@@ -29,13 +29,13 @@ export default function Navbar({ showBackButton }: NavbarProps) {
       <div class="w-px h-6 bg-whalies-navy/20 dark:bg-white/20"></div>
       <div class="flex items-center gap-4 font-bold text-sm">
         <a
-          href="/#posts"
+          href="#posts"
           class="text-whalies-navy dark:text-gray-200 hover:text-whalies-DEFAULT transition-colors"
         >
           Posts
         </a>
         <a
-          href="#"
+          href="/about"
           class="text-whalies-navy dark:text-gray-200 hover:text-whalies-DEFAULT transition-colors"
         >
           About

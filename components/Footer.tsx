@@ -22,7 +22,8 @@ export default function Footer() {
         </div>
       </div>
       <div class="flex justify-center items-center gap-0.5 text-center mt-8 pt-8 border-t border-white/10 text-gray-500 text-sm">
-        <i class="ph-duotone ph-copyright"></i> {new Date().getFullYear()} PigMint. All rights reserved.
+        <i class="ph-duotone ph-copyright"></i> {new Date().getFullYear()}{" "}
+        PigMint. All rights reserved.
       </div>
     </footer>
   );
