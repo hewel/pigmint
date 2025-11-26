@@ -1,4 +1,5 @@
 import { define } from "../utils.ts";
+import ThemeInitializer from "../islands/ThemeInitializer.tsx";
 
 export default define.page(function App({ Component }) {
   return (
@@ -18,17 +19,7 @@ export default define.page(function App({ Component }) {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="/styles.css" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                        document.documentElement.classList.add('dark');
-                      } else {
-                        document.documentElement.classList.remove('dark');
-                      }
-                    `,
-          }}
-        />
+        <ThemeInitializer />
       </head>
       <body>
         <Component />
