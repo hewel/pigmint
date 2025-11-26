@@ -17,10 +17,11 @@ export const handler = define.handlers<Data>({
 export default define.page(function Home({ data }: PageProps<Data>) {
   const { posts } = data;
   const cardColors = [
-    "bg-card-pink",
-    "bg-card-yellow",
-    "bg-card-blue",
-    "bg-card-purple",
+    "bg-pastel-pink",
+    "bg-pastel-yellow",
+    "bg-pastel-blue",
+    "bg-pastel-purple",
+    "bg-pastel-mint",
   ];
 
   return (
@@ -31,10 +32,10 @@ export default define.page(function Home({ data }: PageProps<Data>) {
       <div class="px-4 py-12 mx-auto max-w-screen-lg">
         <div class="text-center mb-12">
           <img src="/logo.svg" class="w-24 h-24 mx-auto mb-4" alt="Logo" />
-          <h1 class="text-6xl text-brand-text mb-4 drop-shadow-sm">
+          <h1 class="text-6xl text-whalies-navy mb-4 drop-shadow-sm font-cartoon">
             Welcome to My Blog
           </h1>
-          <p class="text-xl font-bold text-gray-500 max-w-lg mx-auto">
+          <p class="text-xl font-body text-gray-500 max-w-lg mx-auto">
             A place for thoughts, ideas, and colorful experiments.
           </p>
         </div>
@@ -45,15 +46,15 @@ export default define.page(function Home({ data }: PageProps<Data>) {
             return (
               <a
                 href={`/${post.slug}`}
-                class={`block p-6 border-4 border-black rounded-2xl ${colorClass} shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all duration-200 group`}
+                class={`block p-6 border-4 border-whalies-navy rounded-4xl ${colorClass} shadow-cartoon hover:translate-y-1 hover:translate-x-1 hover:shadow-cartoon-hover transition-all duration-200 group`}
               >
-                <div class="bg-white/50 w-fit px-3 py-1 rounded-full border-2 border-black text-xs font-black mb-3">
+                <div class="bg-white/50 w-fit px-3 py-1 rounded-full border-2 border-whalies-navy text-xs font-cartoon font-black mb-3">
                   {new Date(post.date).toLocaleDateString()}
                 </div>
-                <h2 class="text-3xl mb-3 leading-tight group-hover:underline decoration-2 underline-offset-2">
+                <h2 class="text-3xl mb-3 leading-tight font-cartoon group-hover:underline decoration-2 underline-offset-2">
                   {post.title}
                 </h2>
-                <p class="font-bold text-gray-800 opacity-80 line-clamp-3">
+                <p class="font-body text-gray-800 opacity-80 line-clamp-3">
                   {post.excerpt}
                 </p>
               </a>

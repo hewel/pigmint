@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Nunito:wght@400;600;700;800&display=swap');
 
 @import "tailwindcss";
 
 body {
-  @apply font-body bg-brand-bg text-brand-text;
+  @apply font-body bg-whalies-bg text-whalies-navy;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-display;
+  @apply font-cartoon;
 }
 
 .markdown-body h1 { @apply text-4xl mb-4; }
@@ -16,6 +16,6 @@ h1, h2, h3, h4, h5, h6 {
 .markdown-body p { @apply mb-4 leading-relaxed; }
 .markdown-body ul { @apply list-disc list-inside mb-4; }
 .markdown-body ol { @apply list-decimal list-inside mb-4; }
-.markdown-body a { @apply text-blue-600 underline decoration-2 decoration-blue-300 hover:decoration-blue-600; }
+.markdown-body a { @apply text-whalies-DEFAULT underline decoration-2 decoration-whalies-dark hover:decoration-whalies-DEFAULT; }
 .markdown-body code { @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono; }
-.markdown-body pre { @apply bg-gray-900 text-white p-4 rounded-xl overflow-x-auto mb-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]; }
+.markdown-body pre { @apply bg-whalies-navy text-white p-4 rounded-4xl overflow-x-auto mb-4 border-2 border-whalies-navy shadow-cartoon; }
