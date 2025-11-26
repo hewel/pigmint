@@ -23,6 +23,9 @@ This will watch the project directory and restart as necessary.
 - [*] **Styling Engine:** Integrate **Tailwind CSS** for rapid, modern UI
   development.
 - [*] **Content Management:** Implement a Markdown-based system for blog posts.
+  - [ ] **Advanced Rendering:** Utilize `react-markdown` with custom component
+        mapping (by aliasing React to Preact in `deno.json`) to render Markdown
+        content into styled Preact components aligned with the PigMint theme.
 
 ### 2. UI/UX Features
 
