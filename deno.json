@@ -20,8 +20,8 @@
   ],
   "imports": {
     "@/": "./",
+    "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
     "fresh": "jsr:@fresh/core@^2.2.0",
-    "gray-matter": "npm:gray-matter@^4.0.3",
     "marked": "npm:marked@^15.0.12",
     "preact": "npm:preact@^10.27.2",
     "@preact/signals": "npm:@preact/signals@^2.5.0",

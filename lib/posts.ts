@@ -1,5 +1,5 @@
 import { marked } from "marked";
-import matter from "gray-matter";
+import { extract } from "@std/front-matter/any";
 
 export interface Post {
   slug: string;
@@ -16,14 +16,15 @@ export async function getPosts(): Promise<Post[]> {
       const slug = dirEntry.name.replace(".md", "");
       const path = `./posts/${dirEntry.name}`;
       const fileContent = await Deno.readTextFile(path);
-      const { data, content } = matter(fileContent);
-      const htmlContent = marked(content);
+      const { attrs, body } = extract(fileContent);
+      const attributes = attrs as any;
+      const htmlContent = await marked.parse(body);
       posts.push({
         slug,
-        title: data.title,
-        date: data.date,
-        excerpt: data.excerpt,
-        content: htmlContent,
+        title: attributes.title,
+        date: attributes.date,
+        excerpt: attributes.excerpt,
+        content: htmlContent as string,
       });
     }
   }
@@ -34,14 +35,15 @@ export async function getPost(slug: string): Promise<Post | null> {
   try {
     const path = `./posts/${slug}.md`;
     const fileContent = await Deno.readTextFile(path);
-    const { data, content } = matter(fileContent);
-    const htmlContent = marked(content);
+    const { attrs, body } = extract(fileContent);
+    const attributes = attrs as any;
+    const htmlContent = await marked.parse(body);
     return {
       slug,
-      title: data.title,
-      date: data.date,
-      excerpt: data.excerpt,
-      content: htmlContent,
+      title: attributes.title,
+      date: attributes.date,
+      excerpt: attributes.excerpt,
+      content: htmlContent as string,
     };
   } catch (e) {
     if (e instanceof Deno.errors.NotFound) {
