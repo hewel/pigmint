@@ -1,30 +1,11 @@
-import { marked } from "marked";
 import { extract } from "@std/front-matter/any";
-import Prism from "prismjs";
-import "prismjs/components/prism-typescript.js";
-import "prismjs/components/prism-javascript.js";
-import "prismjs/components/prism-css.js";
-import "prismjs/components/prism-json.js";
-import "prismjs/components/prism-bash.js";
-import "prismjs/components/prism-markdown.js";
-
-// Configure marked to highlight code blocks
-marked.setOptions({
-  highlight: function (code, lang) {
-    if (Prism.languages[lang]) {
-      return Prism.highlight(code, Prism.languages[lang], lang);
-    } else {
-      return code;
-    }
-  },
-});
 
 export interface Post {
   slug: string;
   title: string;
   date: string;
   excerpt: string;
-  content: string;
+  content: string; // Raw markdown content
 }
 
 export async function getPosts(): Promise<Post[]> {
@@ -35,14 +16,13 @@ export async function getPosts(): Promise<Post[]> {
       const path = `./posts/${dirEntry.name}`;
       const fileContent = await Deno.readTextFile(path);
       const { attrs, body } = extract(fileContent);
-      const attributes = attrs as any;
-      const htmlContent = await marked.parse(body);
+      const attributes = attrs as { title: string; date: string; excerpt: string };
       posts.push({
         slug,
         title: attributes.title,
         date: attributes.date,
         excerpt: attributes.excerpt,
-        content: htmlContent as string,
+        content: body, // Return raw markdown
       });
     }
   }
@@ -56,14 +36,13 @@ export async function getPost(slug: string): Promise<Post | null> {
     const path = `./posts/${slug}.md`;
     const fileContent = await Deno.readTextFile(path);
     const { attrs, body } = extract(fileContent);
-    const attributes = attrs as any;
-    const htmlContent = await marked.parse(body);
+    const attributes = attrs as { title: string; date: string; excerpt: string };
     return {
       slug,
       title: attributes.title,
       date: attributes.date,
       excerpt: attributes.excerpt,
-      content: htmlContent as string,
+      content: body, // Return raw markdown
     };
   } catch (e) {
     if (e instanceof Deno.errors.NotFound) {

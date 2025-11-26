@@ -3,6 +3,7 @@ import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
 import ThemeToggle from "../islands/ThemeToggle.tsx";
+import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
 
 interface Data {
   post: Post | null;
@@ -47,10 +48,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
             </h1>
           </header>
 
-          <div
-            class="markdown-body"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <MarkdownRenderer content={post.content} />
         </article>
       </div>
     </>
