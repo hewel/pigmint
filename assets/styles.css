@@ -2,12 +2,36 @@
 
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    --bg-main: #e0f2fe;
+    --text-main: #16213e;
+    --border-main: #16213e;
+  }
+  .dark {
+    --bg-main: #0f172a; /* Slate 900 */
+    --text-main: #f1f5f9; /* Slate 100 */
+    --border-main: #16213e; /* Keep borders dark for contrast on light cards, but maybe light on dark bg? */
+    /* Wait, the cards are pastel. Borders on cards should stay dark. */
+    /* But text on the main background needs to be light. */
+    /* So 'whalies-navy' which is used for text AND borders needs to be split. */
+    /* For now, let's keep whalies-navy as the border color (dark) and introduce a new text variable. */
+  }
+}
+
 @theme {
   /* Colors */
-  --color-whalies-bg: #e0f2fe;
+  /* Main Background: Swaps in dark mode */
+  --color-whalies-bg: var(--bg-main);
+
+  /* Main Text: Swaps in dark mode */
+  --color-whalies-text: var(--text-main);
+
+  /* The Original Navy: Keeps being dark (good for borders on pastel cards) */
+  --color-whalies-navy: #16213e;
+
   --color-whalies-DEFAULT: #67e8f9;
   --color-whalies-dark: #0e7490;
-  --color-whalies-navy: #16213e;
 
   --color-pastel-pink: #f9a8d4;
   --color-pastel-yellow: #fde047;
@@ -30,7 +54,8 @@
 }
 
 body {
-  @apply font-body bg-whalies-bg text-whalies-navy;
+  @apply font-body bg-whalies-bg text-whalies-text transition-colors
+    duration-300;
 }
 
 h1, h2, h3, h4, h5, h6 {
