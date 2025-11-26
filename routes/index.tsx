@@ -113,7 +113,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
                           <object>
                             <a
                               href={`/?tag=${tag}`}
-                              class="bg-white/50 w-fit px-3 py-1 rounded-full border-2 border-whalies-navy text-xs font-cartoon font-black text-whalies-navy hover:bg-white transition-colors"
+                              class="bg-white/50 w-fit px-3 py-1 rounded-full border-whalies-navy text-xs font-cartoon font-black text-whalies-navy hover:bg-white transition-colors"
                             >
                               #{tag}
                             </a>
