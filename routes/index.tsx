@@ -4,6 +4,7 @@ import { define } from "../utils.ts";
 import { getAllTags, getPosts, Post } from "../lib/posts.ts";
 import ThemeToggle from "../islands/ThemeToggle.tsx";
 import Tag from "../components/Tag.tsx";
+import PostCard from "../components/PostCard.tsx";
 
 interface Data {
   posts: Post[];
@@ -87,29 +88,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-screen-xl">
                 {posts.map((post, index) => {
                   const colorClass = cardColors[index % cardColors.length];
-                  return (
-                    <a
-                      href={`/${post.slug}`}
-                      class={`block p-6 border-4 border-whalies-navy rounded-4xl ${colorClass} shadow-cartoon hover:translate-y-1 hover:translate-x-1 hover:shadow-cartoon-hover transition-all duration-200 group`}
-                    >
-                      <div class="flex flex-wrap gap-x-2 gap-y-1 mb-3">
-                        <span class="bg-white/50 w-fit px-3 py-1 rounded-full border-2 border-whalies-navy text-xs font-cartoon font-black text-whalies-navy">
-                          {new Date(post.date).toLocaleDateString()}
-                        </span>
-                        {post.tags && post.tags.map((tag) => (
-                          <object>
-                            <Tag name={tag} href={`/?tag=${tag}`} />
-                          </object>
-                        ))}
-                      </div>
-                      <h3 class="text-3xl mb-3 leading-tight font-cartoon group-hover:underline decoration-2 underline-offset-2 text-whalies-navy">
-                        {post.title}
-                      </h3>
-                      <p class="font-body text-gray-800 opacity-80 line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                    </a>
-                  );
+                  return <PostCard key={post.slug} post={post} colorClass={colorClass} />;
                 })}
               </div>
             </>
