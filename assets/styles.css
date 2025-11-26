@@ -10,16 +10,16 @@
     --text-main: #16213e;
     --border-main: #16213e;
 
-    /* Code - Light (GitHub Light) */
-    --code-bg: #f6f8fa;
-    --code-text: #24292e;
-    --code-keyword: #d73a49;
-    --code-string: #032f62;
-    --code-comment: #6a737d;
-    --code-function: #6f42c1;
-    --code-number: #005cc5;
-    --code-tag: #22863a;
-    --code-attr: #6f42c1;
+    /* Code - Always Dark (High Contrast) */
+    --code-bg: #16213e;
+    --code-text: #adbac7;
+    --code-keyword: #ff7b72;
+    --code-string: #a5d6ff;
+    --code-comment: #8b949e;
+    --code-function: #d2a8ff;
+    --code-number: #79c0ff;
+    --code-tag: #7ee787;
+    --code-attr: #d2a8ff;
   }
 
   .dark {
@@ -27,16 +27,7 @@
     --text-main: #f1f5f9; /* Slate 100 */
     --border-main: #16213e; /* Keep borders dark */
 
-    /* Code - Dark (GitHub Dark Dimmed / Whalies Navy hybrid) */
-    --code-bg: #16213e;
-    --code-text: #adbac7;
-    --code-keyword: #f47067;
-    --code-string: #96d0ff;
-    --code-comment: #768390;
-    --code-function: #dcbdfb;
-    --code-number: #6cb6ff;
-    --code-tag: #8ddb8c;
-    --code-attr: #dcbdfb;
+    /* Code variables inherit from root since we want them consistent */
   }
 }
 
@@ -84,13 +75,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .markdown-body h1 {
-  @apply text-4xl mb-4 dark:text-gray-100;
+  @apply text-4xl mb-4 text-whalies-navy dark:text-gray-100;
 }
 .markdown-body h2 {
-  @apply text-3xl mb-3 mt-6 dark:text-gray-100;
+  @apply text-3xl mb-3 mt-6 text-whalies-navy dark:text-gray-100;
 }
 .markdown-body h3 {
-  @apply text-2xl mb-2 mt-4 dark:text-gray-100;
+  @apply text-2xl mb-2 mt-4 text-whalies-navy dark:text-gray-100;
 }
 .markdown-body p {
   @apply mb-4 leading-relaxed dark:text-gray-300;

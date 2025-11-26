@@ -49,7 +49,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
             ← Back to Home
           </Button>
 
-          <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-card text-whalies-navy dark:text-gray-100">
+          <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">
               <div class="flex flex-wrap justify-center gap-2 mb-4">
                 <div class="bg-pastel-yellow px-4 py-1 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black text-whalies-navy">
@@ -62,7 +62,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
                   By {post.author}
                 </div>
               </div>
-              <h1 class="text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-cartoon">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-cartoon font-black text-whalies-navy dark:text-gray-100">
                 {post.title}
               </h1>
               <div class="flex justify-center gap-2 mt-4">
@@ -71,7 +71,6 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
                 ))}
               </div>
             </header>
-
             <MarkdownRenderer content={post.content} />
           </article>
         </div>
