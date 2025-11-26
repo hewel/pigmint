@@ -83,8 +83,9 @@ h1, h2, h3, h4, h5, h6 {
   @apply list-decimal list-inside mb-4 dark:text-gray-300;
 }
 .markdown-body a {
-  @apply text-whalies-DEFAULT underline decoration-2 decoration-whalies-dark
-    hover:decoration-whalies-DEFAULT;
+  @apply text-whalies-dark dark:text-whalies-DEFAULT underline decoration-2
+    decoration-whalies-DEFAULT dark:decoration-whalies-dark
+    hover:text-whalies-DEFAULT dark:hover:text-whalies-dark;
 }
 .markdown-body code {
   @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono dark:bg-gray-700
