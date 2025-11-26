@@ -1,6 +1,4 @@
 import { useEffect, useState } from "preact/hooks";
-import Moon from "npm:@phosphor-icons/react/dist/csr/Moon.es";
-import Sun from "npm:@phosphor-icons/react/dist/csr/Sun.es";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -40,8 +38,8 @@ export default function ThemeToggle() {
       aria-label="Toggle Dark Mode"
     >
       {theme === "light"
-        ? <Moon size={24} weight="duotone" />
-        : <Sun size={24} weight="duotone" />}
+        ? <i class="ph-duotone ph-moon" style={{ fontSize: "24px" }}></i>
+        : <i class="ph-duotone ph-sun" style={{ fontSize: "24px" }}></i>}
     </button>
   );
 }

@@ -20,7 +20,7 @@
   ],
   "imports": {
     "@/": "./",
-    "@phosphor-icons/react": "npm:@phosphor-icons/react@^2.1.10",
+    "@phosphor-icons/web": "npm:@phosphor-icons/web@^2.1.2",
     "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
     "@types/prismjs": "npm:@types/prismjs@^1.26.5",
     "fresh": "jsr:@fresh/core@^2.2.0",
