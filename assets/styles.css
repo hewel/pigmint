@@ -1,6 +1,6 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap');
+
+@import "tailwindcss";
 
 @theme {
   --font-display: 'Chewy', cursive;

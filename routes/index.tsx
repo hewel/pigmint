@@ -1,4 +1,5 @@
 import { PageProps } from "fresh/server";
+import { page } from "fresh";
 import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
 import { getPosts, Post } from "../lib/posts.ts";
@@ -10,7 +11,7 @@ interface Data {
 export const handler = define.handlers<Data>({
   async GET(_ctx) {
     const posts = await getPosts();
-    return { posts };
+    return page({ posts });
   },
 });
 
