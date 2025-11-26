@@ -43,16 +43,8 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
         <meta name="twitter:image" content="/logo.svg" />{" "}
         {/* TODO: Replace with post-specific image if available */}
       </Head>
-      <Layout>
+      <Layout showBackButton={true}>
         <div class="px-4 py-12 mx-auto max-w-5xl relative">
-          <Button
-            href="/"
-            className="inline-flex items-center fixed top-6 left-4 md:left-8 z-40"
-            variant="secondary"
-          >
-            <i class="ph-duotone ph-arrow-left mr-1"></i> Back to Home
-          </Button>
-
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">
               <div class="flex flex-wrap justify-center gap-3 mb-4">
