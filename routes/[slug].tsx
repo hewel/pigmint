@@ -44,13 +44,13 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
         {/* TODO: Replace with post-specific image if available */}
       </Head>
       <Layout>
-        <div class="px-4 py-12 mx-auto max-w-screen-md relative">
+        <div class="px-4 py-12 mx-auto max-w-5xl relative">
           <Button
             href="/"
-            className="fixed top-6 left-4 md:left-8 z-40"
+            className="inline-flex items-center fixed top-6 left-4 md:left-8 z-40"
             variant="secondary"
           >
-            ← Back to Home
+            <i class="ph-duotone ph-arrow-left mr-1"></i> Back to Home
           </Button>
 
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
@@ -76,7 +76,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
               </div>
             </header>
 
-            <div class="markdown-content max-w-prose mx-auto text-left">
+            <div class="markdown-content mx-auto text-left">
               <MarkdownRenderer content={post.content} />
             </div>
           </article>
