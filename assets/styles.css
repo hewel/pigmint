@@ -1,10 +1,36 @@
 @import "tailwindcss";
-.fresh-gradient {
-  background-color: rgb(134, 239, 172);
-  background-image: linear-gradient(
-    to right bottom,
-    rgb(219, 234, 254),
-    rgb(187, 247, 208),
-    rgb(254, 249, 195)
-  );
+
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap');
+
+@theme {
+  --font-display: 'Chewy', cursive;
+  --font-body: 'Nunito', sans-serif;
+  
+  --color-brand-bg: #F0F9FF;
+  --color-brand-text: #2B2D42;
+  
+  --color-card-pink: #FFC8DD;
+  --color-card-yellow: #FFFAA0;
+  --color-card-blue: #A2D2FF;
+  --color-card-purple: #CDB4DB;
 }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+.markdown-body h1 { @apply text-4xl mb-4; }
+.markdown-body h2 { @apply text-3xl mb-3 mt-6; }
+.markdown-body h3 { @apply text-2xl mb-2 mt-4; }
+.markdown-body p { @apply mb-4 leading-relaxed; }
+.markdown-body ul { @apply list-disc list-inside mb-4; }
+.markdown-body ol { @apply list-decimal list-inside mb-4; }
+.markdown-body a { @apply text-blue-600 underline decoration-2 decoration-blue-300 hover:decoration-blue-600; }
+.markdown-body code { @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono; }
+.markdown-body pre { @apply bg-gray-900 text-white p-4 rounded-xl overflow-x-auto mb-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]; }
