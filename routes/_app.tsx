@@ -17,6 +17,10 @@ export default define.page(function App({ Component }) {
           href="https://fonts.googleapis.com/css2?family=Fredoka&family=Nunito:wght@400;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+        />
         <link rel="stylesheet" href="/styles.css" />
         <script
           dangerouslySetInnerHTML={{

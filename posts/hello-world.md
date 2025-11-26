@@ -15,3 +15,8 @@ Welcome to my new blog built with [Fresh](https://fresh.deno.dev/)!
 - No build step (well, almost, with Vite it's fast)
 
 This is a **bold** statement.
+
+```typescript
+console.log("Hello, world!");
+const add = (a: number, b: number): number => a + b;
+```

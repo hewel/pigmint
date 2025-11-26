@@ -1,5 +1,23 @@
 import { marked } from "marked";
 import { extract } from "@std/front-matter/any";
+import Prism from "prismjs";
+import "prismjs/components/prism-typescript.js";
+import "prismjs/components/prism-javascript.js";
+import "prismjs/components/prism-css.js";
+import "prismjs/components/prism-json.js";
+import "prismjs/components/prism-bash.js";
+import "prismjs/components/prism-markdown.js";
+
+// Configure marked to highlight code blocks
+marked.setOptions({
+  highlight: function (code, lang) {
+    if (Prism.languages[lang]) {
+      return Prism.highlight(code, Prism.languages[lang], lang);
+    } else {
+      return code;
+    }
+  },
+});
 
 export interface Post {
   slug: string;
