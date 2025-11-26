@@ -1,4 +1,4 @@
-import { Handlers, PageProps } from "fresh/server";
+import { PageProps } from "fresh/server";
 import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
@@ -7,13 +7,13 @@ interface Data {
   post: Post | null;
 }
 
-export const handler: Handlers<Data> = {
-  async GET(_req, ctx) {
+export const handler = define.handlers<Data>({
+  async GET(ctx) {
     const { slug } = ctx.params;
     const post = await getPost(slug);
     return ctx.render({ post });
   },
-};
+});
 
 export default define.page(function PostPage({ data }: PageProps<Data>) {
   const { post } = data;
