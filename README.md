@@ -38,9 +38,9 @@ This will watch the project directory and restart as necessary.
 ### 3. Functional Features
 
 - [*] **Landing Page:** Hero section, followed by a grid of recent posts.
-- [ ] **Article View:** Distraction-free reading experience with:
+- [*] **Article View:** Distraction-free reading experience with:
   - Syntax highlighting for code blocks.
   - Estimated reading time.
   - Author bio section.
-- [ ] **Tags & Categories:** Filter posts by topic.
+- [*] **Tags & Categories:** Filter posts by topic.
 - [ ] **SEO:** Dynamic meta tags and Open Graph images.
