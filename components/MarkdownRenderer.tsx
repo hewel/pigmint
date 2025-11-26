@@ -250,7 +250,7 @@ function renderToken(token: Token, index: number): ComponentChildren {
     default:
       // Fallback for unknown tokens
       if ("tokens" in token && Array.isArray(token.tokens)) {
-        return <div key={index}>{renderTokens(token.tokens)}</div>;
+        return <span key={index}>{renderTokens(token.tokens)}</span>;
       }
       if ("text" in token) {
         return <p key={index}>{(token as { text: string }).text}</p>;
