@@ -28,14 +28,14 @@ export default define.page(function AboutPage() {
         <meta name="twitter:image" content="/logo.svg" />
       </Head>
       <Layout>
-        <div class="px-4 py-12 mx-auto max-w-screen-md">
+        <div class="px-4 py-12 mx-auto max-w-5xl">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">
               <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-cartoon font-black text-whalies-navy dark:text-gray-100">
                 About PigMint
               </h1>
             </header>
-            <div class="markdown-content max-w-prose mx-auto text-left">
+            <div class="markdown-content mx-auto text-left">
               <p>
                 Welcome to PigMint Blog! This project serves as a modern,
                 playful, and educational platform built using cutting-edge web
