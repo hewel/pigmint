@@ -14,10 +14,30 @@
     --bg-main: #0f172a; /* Slate 900 */
     --text-main: #f1f5f9; /* Slate 100 */
     --border-main: #16213e; /* Keep borders dark for contrast on light cards, but maybe light on dark bg? */
-    /* Wait, the cards are pastel. Borders on cards should stay dark. */
-    /* But text on the main background needs to be light. */
-    /* So 'whalies-navy' which is used for text AND borders needs to be split. */
-    /* For now, let's keep whalies-navy as the border color (dark) and introduce a new text variable. */
+
+    /* Code - Dark (GitHub Dark Dimmed / Whalies Navy hybrid) */
+    --code-bg: #16213e;
+    --code-text: #adbac7;
+    --code-keyword: #f47067;
+    --code-string: #96d0ff;
+    --code-comment: #768390;
+    --code-function: #dcbdfb;
+    --code-number: #6cb6ff;
+    --code-tag: #8ddb8c;
+    --code-attr: #dcbdfb;
+  }
+
+  /* Code - Light (GitHub Light) */
+  :root {
+    --code-bg: #f6f8fa;
+    --code-text: #24292e;
+    --code-keyword: #d73a49;
+    --code-string: #032f62;
+    --code-comment: #6a737d;
+    --code-function: #6f42c1;
+    --code-number: #005cc5;
+    --code-tag: #22863a;
+    --code-attr: #6f42c1;
   }
 }
 
@@ -92,11 +112,80 @@ h1, h2, h3, h4, h5, h6 {
     dark:text-gray-200;
 }
 .markdown-body pre {
-  @apply bg-whalies-navy text-white p-4 rounded-4xl overflow-x-auto mb-4
-    border-2 border-whalies-navy shadow-cartoon;
+  @apply p-4 rounded-4xl overflow-x-auto mb-4 border-2 border-whalies-navy
+    shadow-cartoon;
+  background-color: var(--code-bg);
+  color: var(--code-text);
 }
 
 .markdown-body pre code {
-  @apply bg-transparent p-0 border-none shadow-none text-gray-200 font-mono
-    text-sm;
+  @apply bg-transparent p-0 border-none shadow-none font-mono text-sm;
+  color: inherit;
+}
+
+/* Highlight.js Custom Theme using CSS Variables */
+.hljs-comment,
+.hljs-quote {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: var(--code-keyword);
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: var(--code-keyword);
+}
+
+.hljs-literal {
+  color: var(--code-keyword);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: var(--code-string);
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: var(--code-number);
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: var(--code-function);
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: var(--code-number);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
 }
