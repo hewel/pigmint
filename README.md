@@ -33,7 +33,7 @@ This will watch the project directory and restart as necessary.
   devices.
 - [*] **Dark/Light Mode:** System-aware theme toggling with manual override.
 - [*] **Modern Typography:** Clean, accessible font stack.
-- [ ] **Animations:** Subtle view transitions and hover effects.
+- [*] **Animations:** Subtle view transitions and hover effects.
 
 ### 3. Functional Features
 
