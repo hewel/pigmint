@@ -32,7 +32,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
       <div class="px-4 py-12 mx-auto max-w-screen-lg">
         <div class="text-center mb-12">
           <img src="/logo.svg" class="w-24 h-24 mx-auto mb-4" alt="Logo" />
-          <h1 class="text-6xl text-whalies-navy mb-4 drop-shadow-sm font-cartoon">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl text-whalies-navy mb-4 drop-shadow-sm font-cartoon">
             Welcome to My Blog
           </h1>
           <p class="text-xl font-body text-gray-500 max-w-lg mx-auto">

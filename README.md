@@ -26,8 +26,8 @@ This will watch the project directory and restart as necessary.
 
 ### 2. UI/UX Features
 
-- [ ] **Responsive Design:** Mobile-first layout ensuring readability on all
-      devices.
+- [*] **Responsive Design:** Mobile-first layout ensuring readability on all
+  devices.
 - [ ] **Dark/Light Mode:** System-aware theme toggling with manual override.
 - [ ] **Modern Typography:** Clean, accessible font stack.
 - [ ] **Animations:** Subtle view transitions and hover effects.

@@ -35,12 +35,12 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
           ← Back to Home
         </a>
 
-        <article class="bg-white border-4 border-whalies-navy rounded-4xl p-8 md:p-12 shadow-card">
+        <article class="bg-white border-4 border-whalies-navy rounded-4xl p-6 md:p-12 shadow-card">
           <header class="mb-8 text-center">
             <div class="inline-block bg-pastel-yellow px-4 py-1 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black mb-4">
               {new Date(post.date).toLocaleDateString()}
             </div>
-            <h1 class="text-5xl md:text-6xl mb-4 leading-tight font-cartoon">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-cartoon">
               {post.title}
             </h1>
           </header>
