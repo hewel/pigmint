@@ -63,7 +63,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
         <meta name="twitter:image" content="/logo.svg" />
       </Head>
       <Layout>
-        <div class="px-4 py-16 mx-auto max-w-screen-lg flex flex-col items-center justify-center">
+        <div class="px-4 py-16 mx-auto max-w-5xl flex flex-col items-center justify-center">
           <div class="text-center mb-24 relative">
             {/* Mascot Placeholder */}
             <div class="w-48 h-48 mx-auto mb-8 bg-pastel-blue rounded-full border-4 border-whalies-navy shadow-cartoon flex items-center justify-center transform rotate-3">

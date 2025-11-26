@@ -44,7 +44,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
         {/* TODO: Replace with post-specific image if available */}
       </Head>
       <Layout>
-        <div class="px-4 py-12 mx-auto max-w-screen-md">
+        <div class="px-4 py-12 mx-auto max-w-5xl">
           <Button href="/" className="mb-8" variant="secondary">
             ← Back to Home
           </Button>
