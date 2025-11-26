@@ -20,7 +20,7 @@ This will watch the project directory and restart as necessary.
 
 ### 1. Core Architecture
 - [*] **Styling Engine:** Integrate **Tailwind CSS** for rapid, modern UI development.
-- [ ] **Content Management:** Implement a Markdown-based system for blog posts.
+- [*] **Content Management:** Implement a Markdown-based system for blog posts.
 
 ### 2. UI/UX Features
 - [ ] **Responsive Design:** Mobile-first layout ensuring readability on all devices.
