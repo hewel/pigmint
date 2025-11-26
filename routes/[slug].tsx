@@ -4,6 +4,8 @@ import { define } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
 import ThemeToggle from "../islands/ThemeToggle.tsx";
 import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
+import Button from "../components/Button.tsx";
+import Tag from "../components/Tag.tsx";
 
 interface Data {
   post: Post | null;
@@ -31,12 +33,9 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
       </Head>
       <ThemeToggle />
       <div class="px-4 py-12 mx-auto max-w-screen-md">
-        <a
-          href="/"
-          class="inline-block mb-8 px-4 py-2 bg-white dark:bg-gray-800 border-2 border-whalies-navy dark:border-gray-500 rounded-button font-cartoon shadow-cartoon hover:shadow-cartoon-hover hover:translate-x-1 hover:translate-y-1 transition-all text-whalies-navy dark:text-gray-100"
-        >
+        <Button href="/" className="mb-8" variant="secondary">
           ← Back to Home
-        </a>
+        </Button>
 
         <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-card text-whalies-navy dark:text-gray-100">
           <header class="mb-8 text-center">
@@ -55,11 +54,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
               {post.title}
             </h1>
             <div class="flex justify-center gap-2 mt-4">
-              {post.tags.map((tag) => (
-                <span class="text-sm font-mono text-gray-500 dark:text-gray-400">
-                  #{tag}
-                </span>
-              ))}
+              {post.tags.map((tag) => <Tag name={tag} href={`/?tag=${tag}`} />)}
             </div>
           </header>
 

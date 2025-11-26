@@ -3,6 +3,7 @@ import { Head } from "fresh/runtime";
 import { define } from "../utils.ts";
 import { getAllTags, getPosts, Post } from "../lib/posts.ts";
 import ThemeToggle from "../islands/ThemeToggle.tsx";
+import Tag from "../components/Tag.tsx";
 
 interface Data {
   posts: Post[];
@@ -54,27 +55,13 @@ export default define.page(function Home({ data }: PageProps<Data>) {
         </div>
 
         <div class="mb-12 flex flex-wrap justify-center gap-3">
-          <a
-            href="/"
-            class={`px-4 py-2 rounded-full border-2 border-whalies-navy font-cartoon font-bold transition-all hover:-translate-y-1 hover:shadow-cartoon-hover ${
-              !selectedTag
-                ? "bg-whalies-navy text-white shadow-cartoon"
-                : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm"
-            }`}
-          >
-            All
-          </a>
+          <Tag name="All" href="/" active={!selectedTag} />
           {allTags.map((tag) => (
-            <a
+            <Tag
+              name={tag}
               href={`/?tag=${tag}`}
-              class={`px-4 py-2 rounded-full border-2 border-whalies-navy font-cartoon font-bold transition-all hover:-translate-y-1 hover:shadow-cartoon-hover ${
-                selectedTag === tag
-                  ? "bg-whalies-navy text-white shadow-cartoon"
-                  : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm"
-              }`}
-            >
-              #{tag}
-            </a>
+              active={selectedTag === tag}
+            />
           ))}
         </div>
 
@@ -111,12 +98,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
                         </span>
                         {post.tags && post.tags.map((tag) => (
                           <object>
-                            <a
-                              href={`/?tag=${tag}`}
-                              class="bg-white/50 w-fit px-3 py-1 rounded-full border-whalies-navy text-xs font-cartoon font-black text-whalies-navy hover:bg-white transition-colors"
-                            >
-                              #{tag}
-                            </a>
+                            <Tag name={tag} href={`/?tag=${tag}`} />
                           </object>
                         ))}
                       </div>
