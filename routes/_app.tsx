@@ -19,9 +19,9 @@ export default define.page(function App({ Component }) {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="/styles.css" />
-        <ThemeInitializer />
       </head>
       <body>
+        <ThemeInitializer />
         <Component />
       </body>
     </html>
