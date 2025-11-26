@@ -11,7 +11,7 @@ export const handler = define.handlers<Data>({
   async GET(ctx) {
     const { slug } = ctx.params;
     const post = await getPost(slug);
-    return ctx.render({ post });
+    return { post };
   },
 });
 

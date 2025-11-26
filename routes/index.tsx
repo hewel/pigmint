@@ -8,9 +8,9 @@ interface Data {
 }
 
 export const handler = define.handlers<Data>({
-  async GET(ctx) {
+  async GET(_ctx) {
     const posts = await getPosts();
-    return ctx.render({ posts });
+    return { posts };
   },
 });
 
