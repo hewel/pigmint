@@ -55,6 +55,17 @@ export async function getPosts(tag?: string): Promise<Post[]> {
   );
 }
 
+export async function getAllTags(): Promise<string[]> {
+  const posts = await getPosts();
+  const tags = new Set<string>();
+  for (const post of posts) {
+    for (const tag of post.tags) {
+      tags.add(tag);
+    }
+  }
+  return Array.from(tags).sort();
+}
+
 export async function getPost(slug: string): Promise<Post | null> {
   try {
     const path = `./posts/${slug}.md`;
