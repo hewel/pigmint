@@ -2,6 +2,8 @@
 title: "Hello World"
 date: "2025-11-26"
 excerpt: "This is my first blog post using Fresh and Markdown."
+tags: ["fresh", "deno", "markdown"]
+author: "Hewel"
 ---
 
 # Hello World
