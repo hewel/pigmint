@@ -4,7 +4,7 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    // Check local storage or system preference
+    // Check local storage or system preference to set initial state correctly
     if (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&
@@ -19,6 +19,7 @@ export default function ThemeToggle() {
   }, []);
 
   const toggleTheme = () => {
+    // Toggle based on current state
     if (theme === "light") {
       setTheme("dark");
       document.documentElement.classList.add("dark");
