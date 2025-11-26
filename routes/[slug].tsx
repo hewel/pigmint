@@ -47,7 +47,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
         <div class="px-4 py-12 mx-auto max-w-screen-md relative">
           <Button
             href="/"
-            className="fixed top-24 left-4 md:left-8 z-40"
+            className="fixed top-6 left-4 md:left-8 z-40"
             variant="secondary"
           >
             ← Back to Home
