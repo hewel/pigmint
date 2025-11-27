@@ -38,7 +38,7 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} class={combinedClassName}>
+    <button type="button" onClick={onClick} class={combinedClassName}>
       {children}
     </button>
   );
