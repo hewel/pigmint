@@ -1,6 +1,6 @@
 import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
-import { define } from "../utils.ts";
+import { define, SITE_BASE_URL } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
 import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
 import Button from "../components/Button.tsx";
@@ -36,7 +36,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
         <meta property="og:image" content="/logo.svg" />{" "}
         {/* TODO: Replace with post-specific image if available */}
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://pigmint.dev/${post.slug}`} />
+        <meta property="og:url" content={`${SITE_BASE_URL}/${post.slug}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />

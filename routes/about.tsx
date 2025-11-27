@@ -1,4 +1,4 @@
-import { define } from "../utils.ts";
+import { define, SITE_BASE_URL } from "../utils.ts";
 import { Head } from "fresh/runtime";
 import Layout from "../components/Layout.tsx";
 
@@ -18,7 +18,7 @@ export default define.page(function AboutPage() {
         />
         <meta property="og:image" content="/logo.svg" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pigmint.dev/about" />
+        <meta property="og:url" content={`${SITE_BASE_URL}/about`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About PigMint Blog" />
         <meta

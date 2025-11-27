@@ -7,3 +7,5 @@ export interface State {
 }
 
 export const define = createDefine<State>();
+
+export const SITE_BASE_URL = "https://pigmint.dev";

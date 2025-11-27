@@ -1,6 +1,6 @@
 import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
-import { define } from "../utils.ts";
+import { define, SITE_BASE_URL } from "../utils.ts";
 import { getAllTags, getPosts, Post } from "../lib/posts.ts";
 import Tag from "../components/Tag.tsx";
 import PostCard from "../components/PostCard.tsx";
@@ -50,7 +50,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
           content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
         />
         <meta property="og:image" content="/logo.svg" />
-        <meta property="og:url" content="https://pigmint.dev" />
+        <meta property="og:url" content={SITE_BASE_URL} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
