@@ -6,26 +6,26 @@
 
 @layer base {
   :root {
-    --bg-main: #e0f2fe;
-    --text-main: #16213e;
-    --border-main: #16213e;
+    --bg-main: oklch(0.932 0.032 229.86); /* #e0f2fe */
+    --text-main: oklch(0.206 0.059 264.85); /* #16213e */
+    --border-main: oklch(0.206 0.059 264.85); /* #16213e */
 
     /* Code - Always Dark (High Contrast) */
-    --code-bg: #16213e;
-    --code-text: #adbac7;
-    --code-keyword: #ff7b72;
-    --code-string: #a5d6ff;
-    --code-comment: #8b949e;
-    --code-function: #d2a8ff;
-    --code-number: #79c0ff;
-    --code-tag: #7ee787;
-    --code-attr: #d2a8ff;
+    --code-bg: oklch(0.206 0.059 264.85); /* #16213e */
+    --code-text: oklch(0.797 0.023 256.85); /* #adbac7 */
+    --code-keyword: oklch(0.712 0.194 26.87); /* #ff7b72 */
+    --code-string: oklch(0.843 0.094 243.79); /* #a5d6ff */
+    --code-comment: oklch(0.636 0.018 256.85); /* #8b949e */
+    --code-function: oklch(0.759 0.154 302.38); /* #d2a8ff */
+    --code-number: oklch(0.765 0.132 246.34); /* #79c0ff */
+    --code-tag: oklch(0.857 0.178 142.82); /* #7ee787 */
+    --code-attr: oklch(0.759 0.154 302.38); /* #d2a8ff */
   }
 
   .dark {
-    --bg-main: #0f172a; /* Slate 900 */
-    --text-main: #f1f5f9; /* Slate 100 */
-    --border-main: #16213e; /* Keep borders dark */
+    --bg-main: oklch(0.178 0.045 262.6); /* #0f172a */
+    --text-main: oklch(0.959 0.01 256.85); /* #f1f5f9 */
+    --border-main: oklch(0.206 0.059 264.85); /* #16213e */
 
     /* Code variables inherit from root since we want them consistent */
   }
@@ -40,16 +40,16 @@
   --color-whalies-text: var(--text-main);
 
   /* The Original Navy: Keeps being dark (good for borders on pastel cards) */
-  --color-whalies-navy: #16213e;
+  --color-whalies-navy: oklch(0.206 0.059 264.85); /* #16213e */
 
-  --color-whalies-default: oklch(0.8651 0.1153 207.08);
-  --color-whalies-dark: #0e7490;
+  --color-whalies-default: oklch(0.8651 0.1153 207.08); /* #67e8f9 */
+  --color-whalies-dark: oklch(0.53 0.11 233.5); /* #0e7490 */
 
-  --color-pastel-pink: #f9a8d4;
-  --color-pastel-yellow: #fde047;
-  --color-pastel-purple: #c4b5fd;
-  --color-pastel-mint: #6ee7b7;
-  --color-pastel-blue: #7dd3fc;
+  --color-pastel-pink: oklch(0.8 0.15 340); /* #f9a8d4 */
+  --color-pastel-yellow: oklch(0.92 0.18 98); /* #fde047 */
+  --color-pastel-purple: oklch(0.82 0.12 290); /* #c4b5fd */
+  --color-pastel-mint: oklch(0.88 0.15 160); /* #6ee7b7 */
+  --color-pastel-blue: oklch(0.86 0.1 235); /* #7dd3fc */
 
   /* Fonts */
   --font-cartoon: "Fredoka", "Varela Round", sans-serif;
@@ -60,9 +60,9 @@
   --radius-button: 1.5rem;
 
   /* Shadows */
-  --shadow-cartoon: 0px 4px 0px 0px rgba(22, 33, 62, 0.2);
-  --shadow-cartoon-hover: 0px 2px 0px 0px rgba(22, 33, 62, 0.2);
-  --shadow-card: 0px 8px 0px 0px rgba(0, 0, 0, 0.1);
+  --shadow-cartoon: 0px 4px 0px 0px oklch(0.206 0.059 264.85 / 0.2);
+  --shadow-cartoon-hover: 0px 2px 0px 0px oklch(0.206 0.059 264.85 / 0.2);
+  --shadow-card: 0px 8px 0px 0px oklch(0 0 0 / 0.1);
 }
 
 body {
