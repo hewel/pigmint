@@ -12,7 +12,7 @@ export default function Navbar({ showBackButton }: NavbarProps) {
         ? (
           <a
             href="/"
-            class="flex items-center gap-2 font-cartoon font-bold text-xl text-whalies-navy dark:text-gray-100 hover:text-whalies-DEFAULT transition-colors"
+            class="flex items-center gap-2 font-cartoon font-bold text-xl text-whalies-navy dark:text-gray-100 hover:text-whalies-default transition-colors"
           >
             <i class="ph-duotone ph-arrow-left"></i>
             <span class="hidden sm:inline">Back</span>
@@ -21,7 +21,7 @@ export default function Navbar({ showBackButton }: NavbarProps) {
         : (
           <a
             href="/"
-            class="font-cartoon font-bold text-xl text-whalies-navy dark:text-gray-100 hover:text-whalies-DEFAULT transition-colors"
+            class="font-cartoon font-bold text-xl text-whalies-navy dark:text-gray-100 hover:text-whalies-default transition-colors"
           >
             PigMint
           </a>
@@ -30,13 +30,13 @@ export default function Navbar({ showBackButton }: NavbarProps) {
       <div class="flex items-center gap-4 font-bold text-sm">
         <a
           href="/#posts"
-          class="text-whalies-navy dark:text-gray-200 hover:text-whalies-DEFAULT transition-colors"
+          class="text-whalies-navy dark:text-gray-200 hover:text-whalies-default transition-colors"
         >
           Posts
         </a>
         <a
           href="/about"
-          class="text-whalies-navy dark:text-gray-200 hover:text-whalies-DEFAULT transition-colors"
+          class="text-whalies-navy dark:text-gray-200 hover:text-whalies-default transition-colors"
         >
           About
         </a>

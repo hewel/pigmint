@@ -10,13 +10,13 @@ export default function Footer() {
           </p>
         </div>
         <div class="flex gap-6">
-          <a href="#" class="hover:text-whalies-DEFAULT transition-colors">
+          <a href="#" class="hover:text-whalies-default transition-colors">
             <i class="ph-duotone ph-github-logo text-2xl"></i>
           </a>
-          <a href="#" class="hover:text-whalies-DEFAULT transition-colors">
+          <a href="#" class="hover:text-whalies-default transition-colors">
             <i class="ph-duotone ph-twitter-logo text-2xl"></i>
           </a>
-          <a href="#" class="hover:text-whalies-DEFAULT transition-colors">
+          <a href="#" class="hover:text-whalies-default transition-colors">
             <i class="ph-duotone ph-discord-logo text-2xl"></i>
           </a>
         </div>

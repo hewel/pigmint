@@ -42,7 +42,7 @@
   /* The Original Navy: Keeps being dark (good for borders on pastel cards) */
   --color-whalies-navy: #16213e;
 
-  --color-whalies-DEFAULT: #67e8f9;
+  --color-whalies-default: oklch(0.8651 0.1153 207.08);
   --color-whalies-dark: #0e7490;
 
   --color-pastel-pink: #f9a8d4;
@@ -93,9 +93,9 @@ h1, h2, h3, h4, h5, h6 {
   @apply list-decimal list-outside pl-5 mb-4 dark:text-gray-300;
 }
 .markdown-body a {
-  @apply text-whalies-dark dark:text-whalies-DEFAULT underline decoration-2
-    decoration-whalies-DEFAULT dark:decoration-whalies-dark
-    hover:text-whalies-DEFAULT dark:hover:text-whalies-dark transition-colors
+  @apply text-whalies-dark dark:text-whalies-default underline decoration-2
+    decoration-whalies-default dark:decoration-whalies-dark
+    hover:text-whalies-default dark:hover:text-whalies-dark transition-colors
     duration-200;
 }
 .markdown-body code {

@@ -106,7 +106,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
                   </p>
                   <a
                     href="/"
-                    class="text-whalies-DEFAULT hover:underline mt-4 inline-block"
+                    class="text-whalies-default hover:underline mt-4 inline-block"
                   >
                     Clear filter
                   </a>

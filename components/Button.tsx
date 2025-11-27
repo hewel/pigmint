@@ -20,7 +20,7 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-whalies-DEFAULT text-whalies-navy shadow-cartoon hover:bg-whalies-dark hover:text-white",
+      "bg-whalies-default text-whalies-navy shadow-cartoon hover:bg-whalies-dark hover:text-white",
     secondary:
       "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-cartoon",
     ghost:
