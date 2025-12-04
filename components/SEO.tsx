@@ -52,6 +52,15 @@ export default function SEO({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+
+      {/* Telegram */}
+      <meta name="telegram:channel" content="@pigmint" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+
+      {/* Threads / Instagram */}
+      <meta property="og:image:alt" content={fullTitle} />
+      <meta property="og:locale" content="en_US" />
     </>
   );
 }
