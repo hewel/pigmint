@@ -3,9 +3,9 @@ import { Head } from "fresh/runtime";
 import { define, SITE_BASE_URL } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
 import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
-import Button from "../components/Button.tsx";
 import Tag from "../components/Tag.tsx";
 import Layout from "../components/Layout.tsx";
+import SEO from "../components/SEO.tsx";
 
 interface Data {
   post: Post | null;
@@ -29,19 +29,14 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
   return (
     <>
       <Head>
-        <title>{post.title} - PigMint Blog</title>
-        <meta name="description" content={post.excerpt} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content="/logo.svg" />{" "}
-        {/* TODO: Replace with post-specific image if available */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`${SITE_BASE_URL}/${post.slug}`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content="/logo.svg" />{" "}
-        {/* TODO: Replace with post-specific image if available */}
+        <SEO
+          title={post.title}
+          description={post.excerpt}
+          url={`${SITE_BASE_URL}/${post.slug}`}
+          type="article"
+          author={post.author}
+          publishedTime={post.date}
+        />
       </Head>
       <Layout showBackButton>
         <div class="px-4 py-12 mx-auto max-w-5xl relative">

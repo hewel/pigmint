@@ -1,31 +1,17 @@
 import { define, SITE_BASE_URL } from "../utils.ts";
 import { Head } from "fresh/runtime";
 import Layout from "../components/Layout.tsx";
+import SEO from "../components/SEO.tsx";
 
 export default define.page(function AboutPage() {
   return (
     <>
       <Head>
-        <title>About PigMint Blog</title>
-        <meta
-          name="description"
-          content="Learn more about the PigMint Blog, our mission, and the technologies we use."
+        <SEO
+          title="About PigMint Blog"
+          description="Learn more about the PigMint Blog, our mission, and the technologies we use."
+          url={`${SITE_BASE_URL}/about`}
         />
-        <meta property="og:title" content="About PigMint Blog" />
-        <meta
-          property="og:description"
-          content="Learn more about the PigMint Blog, our mission, and the technologies we use."
-        />
-        <meta property="og:image" content="/logo.svg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${SITE_BASE_URL}/about`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About PigMint Blog" />
-        <meta
-          name="twitter:description"
-          content="Learn more about the PigMint Blog, our mission, and the technologies we use."
-        />
-        <meta name="twitter:image" content="/logo.svg" />
       </Head>
       <Layout>
         <div class="px-4 py-12 mx-auto max-w-5xl">

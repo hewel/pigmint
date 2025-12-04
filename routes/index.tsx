@@ -6,6 +6,7 @@ import Tag from "../components/Tag.tsx";
 import PostCard from "../components/PostCard.tsx";
 import Button from "../components/Button.tsx";
 import Layout from "../components/Layout.tsx";
+import SEO from "../components/SEO.tsx";
 
 interface Data {
   posts: Post[];
@@ -36,31 +37,11 @@ export default define.page(function Home({ data }: PageProps<Data>) {
   return (
     <>
       <Head>
-        <title>PigMint Blog - A Fresh Perspective on Web Dev & Design</title>
-        <meta
-          name="description"
-          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+        <SEO
+          title="PigMint Blog - A Fresh Perspective on Web Dev & Design"
+          description="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
+          url={SITE_BASE_URL}
         />
-        <meta
-          property="og:title"
-          content="PigMint Blog - A Fresh Perspective on Web Dev & Design"
-        />
-        <meta
-          property="og:description"
-          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
-        />
-        <meta property="og:image" content="/logo.svg" />
-        <meta property="og:url" content={SITE_BASE_URL} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="PigMint Blog - A Fresh Perspective on Web Dev & Design"
-        />
-        <meta
-          name="twitter:description"
-          content="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
-        />
-        <meta name="twitter:image" content="/logo.svg" />
       </Head>
       <Layout>
         <div class="px-4 py-16 mx-auto max-w-5xl flex flex-col items-center justify-center">
