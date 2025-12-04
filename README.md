@@ -21,7 +21,7 @@ This will watch the project directory and restart as necessary.
 ### 1. Core Architecture
 
 - [x] **Styling Engine:** Integrate **Tailwind CSS** for rapid, modern UI
-  development.
+      development.
 - [x] **Content Management:** Implement a Markdown-based system for blog posts.
   - [x] **Advanced Rendering:** Use `marked` to parse Markdown to lexer then
         render to preact components and rehype-highlight for syntax
@@ -30,7 +30,7 @@ This will watch the project directory and restart as necessary.
 ### 2. UI/UX Features
 
 - [x] **Responsive Design:** Mobile-first layout ensuring readability on all
-  devices.
+      devices.
 - [x] **Dark/Light Mode:** System-aware theme toggling with manual override.
 - [x] **Modern Typography:** Clean, accessible font stack.
 - [x] **Animations:** Subtle view transitions and hover effects.

@@ -1,7 +1,7 @@
 import { ComponentChildren } from "preact";
 import Navbar from "./Navbar.tsx";
 import Footer from "./Footer.tsx";
-import { config } from '../utils.ts'
+import { config } from "../utils.ts";
 
 interface LayoutProps {
   children: ComponentChildren;
