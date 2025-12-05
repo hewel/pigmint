@@ -40,6 +40,13 @@ export default function Footer() {
     },
   );
 
+  // Fallback social links when API fails
+  const fallbackSocial: Social[] = [
+    { name: "GitHub", icon: "github", url: "https://github.com" },
+  ];
+
+  const socialLinks = error ? fallbackSocial : config?.social ?? [];
+
   return (
     <footer class="bg-whalies-navy text-white py-12 mt-auto">
       <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -54,6 +61,13 @@ export default function Footer() {
             ? (
               <div class="mt-4 flex items-center justify-center md:justify-start gap-4 text-sm text-gray-500">
                 <span class="animate-pulse">Loading stats...</span>
+              </div>
+            )
+            : error
+            ? (
+              <div class="mt-4 flex items-center justify-center md:justify-start gap-4 text-sm text-gray-500">
+                <i class="ph-duotone ph-warning text-lg"></i>
+                <span>Unable to load stats</span>
               </div>
             )
             : config?.github?.stats && config.github.repoUrl
@@ -105,7 +119,7 @@ export default function Footer() {
               </div>
             )
             : (
-              config?.social?.map((item) => (
+              socialLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.url}
