@@ -4,6 +4,9 @@ import { format, formatDistanceToNow } from "date-fns";
 
 export interface Config {
   base: Base;
+  github: {
+    repo: string;
+  },
   social: Social[];
 }
 

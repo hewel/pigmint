@@ -1,17 +1,9 @@
 [base]
 url = "https://pigmint.me"
+[github]
+repo = "hewel/pigmint"
 
 [[social]]
 name = "GitHub"
 icon = "github"
 url = "https://github.com/hewel"
-
-[[social]]
-name = "X (Twitter)"
-icon = "x"
-url = "https://x.com/takao_1991"
-
-[[social]]
-name = "Threads"
-icon = "threads"
-url = "https://www.threads.com/@pigpurepie"
