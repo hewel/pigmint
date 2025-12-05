@@ -180,3 +180,46 @@ h1, h2, h3, h4, h5, h6 {
 .hljs-strong {
   font-weight: bold;
 }
+
+/* Cute Logo Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(3deg);
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0px 4px 0px 0px oklch(0.206 0.059 264.85 / 0.2),
+                0 0 20px oklch(0.86 0.1 235 / 0.3);
+  }
+  50% {
+    box-shadow: 0px 4px 0px 0px oklch(0.206 0.059 264.85 / 0.2),
+                0 0 30px oklch(0.86 0.1 235 / 0.6);
+  }
+}
+
+.logo-mascot {
+  animation: float 3s ease-in-out infinite, pulse-glow 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.logo-mascot:hover {
+  animation: wiggle 0.5s ease-in-out infinite;
+  transform: scale(1.1);
+}
