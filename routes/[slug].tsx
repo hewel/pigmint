@@ -1,6 +1,6 @@
 import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
-import { define, SITE_BASE_URL } from "../utils.ts";
+import { define, formatDateLong, SITE_BASE_URL } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
 import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
 import Tag from "../components/Tag.tsx";
@@ -44,7 +44,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
             <header class="mb-8 text-center">
               <div class="flex flex-wrap justify-center gap-3 mb-4">
                 <div class="bg-pastel-yellow px-4 py-1 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black text-whalies-navy">
-                  {new Date(post.date).toLocaleDateString()}
+                  {formatDateLong(post.date)}
                 </div>
                 <div class="bg-pastel-blue px-4 py-1 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black text-whalies-navy">
                   {post.readingTime} min read

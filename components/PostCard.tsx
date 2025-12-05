@@ -1,5 +1,6 @@
 import { Post } from "../lib/posts.ts";
 import Tag from "./Tag.tsx";
+import { formatDate } from "../utils.ts";
 
 interface PostCardProps {
   post: Post;
@@ -35,7 +36,7 @@ export default function PostCard({ post, colorClass }: PostCardProps) {
       {/* Date badge at the bottom */}
       <div class="mt-auto flex justify-end">
         <span class="bg-white/50 px-3 py-1 rounded-full border-2 border-whalies-navy text-xs font-cartoon font-black text-whalies-navy">
-          {new Date(post.date).toLocaleDateString()}
+          {formatDate(post.date)}
         </span>
       </div>
     </article>

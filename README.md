@@ -47,4 +47,4 @@ This will watch the project directory and restart as necessary.
   - Author bio section.
 - [x] **Tags & Categories:** Filter posts by topic.
 - [x] **SEO:** Dynamic meta tags and Open Graph images.
-- [ ] **Date Formatting:** Use date-fns for consistent and localized date display.
+- [x] **Date Formatting:** Use date-fns for consistent and localized date display.

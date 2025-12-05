@@ -1,4 +1,4 @@
-import { Social } from "../utils.ts";
+import { getYear, Social } from "../utils.ts";
 
 interface FooterProps {
   social: Social[];
@@ -30,7 +30,7 @@ export default function Footer({ social }: FooterProps) {
         </div>
       </div>
       <div class="flex justify-center items-center gap-0.5 text-center mt-8 pt-8 border-t border-white/10 text-gray-500 text-sm">
-        <i class="ph-duotone ph-copyright"></i> {new Date().getFullYear()}{" "}
+        <i class="ph-duotone ph-copyright"></i> {getYear()}{" "}
         PigMint. All rights reserved.
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import { createDefine } from "fresh";
 import { parse } from "@std/toml";
+import { format, formatDistanceToNow } from "date-fns";
 
 export interface Config {
   base: Base;
@@ -29,3 +30,20 @@ const configData = Deno.readTextFileSync("config.toml");
 export const config: Config = parse(configData) as unknown as Config;
 
 export const SITE_BASE_URL = config.base.url;
+
+// Date formatting utilities
+export function formatDate(date: string | Date): string {
+  return format(new Date(date), "MMM d, yyyy");
+}
+
+export function formatDateLong(date: string | Date): string {
+  return format(new Date(date), "MMMM d, yyyy");
+}
+
+export function formatRelativeDate(date: string | Date): string {
+  return formatDistanceToNow(new Date(date), { addSuffix: true });
+}
+
+export function getYear(): number {
+  return new Date().getFullYear();
+}
