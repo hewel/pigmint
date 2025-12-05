@@ -36,7 +36,7 @@ export default function Footer() {
     "/api/config",
     (url: string) => fetch(url).then((res) => res.json()),
     {
-      focusThrottleInterval: 5 * 60 * 1000, // 5 minutes
+      revalidateOnFocus: false,
     },
   );
 
