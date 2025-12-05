@@ -49,5 +49,5 @@ This will watch the project directory and restart as necessary.
 - [x] **SEO:** Dynamic meta tags and Open Graph images.
 - [x] **Date Formatting:** Use date-fns for consistent and localized date display.
 - [x] **Github Integration:** Fetch and display repository stats in footer.
-- [ ] **Runtime Configuration:** Use Deno's file system API to read config.toml
+- [x] **Runtime Configuration:** Use Deno's file system API to read config.toml
       at runtime for dynamic updates without redeployment.

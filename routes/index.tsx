@@ -1,6 +1,6 @@
 import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
-import { define, SITE_BASE_URL } from "../utils.ts";
+import { define, getConfig, getSiteBaseUrl, Social } from "../utils.ts";
 import { getAllTags, getPosts, Post } from "../lib/posts.ts";
 import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import PostCard from "../components/PostCard.tsx";
@@ -14,23 +14,27 @@ interface Data {
   allTags: string[];
   selectedTag?: string;
   githubStats: GitHubStats | null;
+  social: Social[];
+  siteBaseUrl: string;
 }
 
 export const handler = define.handlers<Data>({
   async GET(ctx) {
     const url = new URL(ctx.req.url);
     const selectedTag = url.searchParams.get("tag") || undefined;
-    const [posts, allTags, githubStats] = await Promise.all([
+    const [posts, allTags, githubStats, config, siteBaseUrl] = await Promise.all([
       getPosts(selectedTag),
       getAllTags(),
       getGitHubStats(),
+      getConfig(),
+      getSiteBaseUrl(),
     ]);
-    return page({ posts, allTags, selectedTag, githubStats });
+    return page({ posts, allTags, selectedTag, githubStats, social: config.social, siteBaseUrl });
   },
 });
 
 export default define.page(function Home({ data }: PageProps<Data>) {
-  const { posts, allTags, selectedTag, githubStats } = data;
+  const { posts, allTags, selectedTag, githubStats, social, siteBaseUrl } = data;
   const cardColors = [
     "bg-pastel-pink",
     "bg-pastel-yellow",
@@ -45,10 +49,10 @@ export default define.page(function Home({ data }: PageProps<Data>) {
         <SEO
           title="PigMint Blog - A Fresh Perspective on Web Dev & Design"
           description="A fresh perspective on web development, design, and everything in between. Explore our colorful articles and dive deep into exciting topics."
-          url={SITE_BASE_URL}
+          url={siteBaseUrl}
         />
       </Head>
-      <Layout githubStats={githubStats}>
+      <Layout githubStats={githubStats} social={social}>
         <div class="px-4 py-16 mx-auto max-w-5xl flex flex-col items-center justify-center">
           <div class="text-center mb-24 relative">
             {/* Mascot Placeholder */}

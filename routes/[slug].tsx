@@ -1,6 +1,6 @@
 import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
-import { define, formatDateLong, SITE_BASE_URL } from "../utils.ts";
+import { define, formatDateLong, getConfig, getSiteBaseUrl, Social } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
 import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
@@ -11,21 +11,25 @@ import SEO from "../components/SEO.tsx";
 interface Data {
   post: Post | null;
   githubStats: GitHubStats | null;
+  social: Social[];
+  siteBaseUrl: string;
 }
 
 export const handler = define.handlers<Data>({
   async GET(ctx) {
     const { slug } = ctx.params;
-    const [post, githubStats] = await Promise.all([
+    const [post, githubStats, config, siteBaseUrl] = await Promise.all([
       getPost(slug),
       getGitHubStats(),
+      getConfig(),
+      getSiteBaseUrl(),
     ]);
-    return page({ post, githubStats });
+    return page({ post, githubStats, social: config.social, siteBaseUrl });
   },
 });
 
 export default define.page(function PostPage({ data }: PageProps<Data>) {
-  const { post, githubStats } = data;
+  const { post, githubStats, social, siteBaseUrl } = data;
 
   if (!post) {
     return <h1>404 - Post Not Found</h1>;
@@ -37,13 +41,13 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
         <SEO
           title={post.title}
           description={post.excerpt}
-          url={`${SITE_BASE_URL}/${post.slug}`}
+          url={`${siteBaseUrl}/${post.slug}`}
           type="article"
           author={post.author}
           publishedTime={post.date}
         />
       </Head>
-      <Layout showBackButton githubStats={githubStats}>
+      <Layout showBackButton githubStats={githubStats} social={social}>
         <div class="px-4 py-12 mx-auto max-w-5xl relative">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">
