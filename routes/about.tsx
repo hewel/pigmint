@@ -1,31 +1,22 @@
 import { page, PageProps } from "fresh";
-import { define, getConfig, getSiteBaseUrl, Social } from "../utils.ts";
+import { define, getSiteBaseUrl } from "../utils.ts";
 import { Head } from "fresh/runtime";
-import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import Layout from "../components/Layout.tsx";
 import SEO from "../components/SEO.tsx";
 
 interface Data {
-  githubStats: GitHubStats | null;
-  social: Social[];
   siteBaseUrl: string;
-  repoUrl: string;
 }
 
 export const handler = define.handlers<Data>({
   async GET() {
-    const [githubStats, config, siteBaseUrl] = await Promise.all([
-      getGitHubStats(),
-      getConfig(),
-      getSiteBaseUrl(),
-    ]);
-    const repoUrl = `https://github.com/${config.github.repo}`;
-    return page({ githubStats, social: config.social, siteBaseUrl, repoUrl });
+    const siteBaseUrl = await getSiteBaseUrl();
+    return page({ siteBaseUrl });
   },
 });
 
 export default define.page(function AboutPage({ data }: PageProps<Data>) {
-  const { githubStats, social, siteBaseUrl, repoUrl } = data;
+  const { siteBaseUrl } = data;
   return (
     <>
       <Head>
@@ -35,7 +26,7 @@ export default define.page(function AboutPage({ data }: PageProps<Data>) {
           url={`${siteBaseUrl}/about`}
         />
       </Head>
-      <Layout githubStats={githubStats} social={social} repoUrl={repoUrl}>
+      <Layout>
         <div class="px-4 py-12 mx-auto max-w-5xl">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">

@@ -1,8 +1,7 @@
 import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
-import { define, formatDateLong, getConfig, getSiteBaseUrl, Social } from "../utils.ts";
+import { define, formatDateLong, getSiteBaseUrl } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
-import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
 import Tag from "../components/Tag.tsx";
 import Layout from "../components/Layout.tsx";
@@ -10,28 +9,22 @@ import SEO from "../components/SEO.tsx";
 
 interface Data {
   post: Post | null;
-  githubStats: GitHubStats | null;
-  social: Social[];
   siteBaseUrl: string;
-  repoUrl: string;
 }
 
 export const handler = define.handlers<Data>({
   async GET(ctx) {
     const { slug } = ctx.params;
-    const [post, githubStats, config, siteBaseUrl] = await Promise.all([
+    const [post, siteBaseUrl] = await Promise.all([
       getPost(slug),
-      getGitHubStats(),
-      getConfig(),
       getSiteBaseUrl(),
     ]);
-    const repoUrl = `https://github.com/${config.github.repo}`;
-    return page({ post, githubStats, social: config.social, siteBaseUrl, repoUrl });
+    return page({ post, siteBaseUrl });
   },
 });
 
 export default define.page(function PostPage({ data }: PageProps<Data>) {
-  const { post, githubStats, social, siteBaseUrl, repoUrl } = data;
+  const { post, siteBaseUrl } = data;
 
   if (!post) {
     return <h1>404 - Post Not Found</h1>;
@@ -49,7 +42,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
           publishedTime={post.date}
         />
       </Head>
-      <Layout showBackButton githubStats={githubStats} social={social} repoUrl={repoUrl}>
+      <Layout showBackButton>
         <div class="px-4 py-12 mx-auto max-w-5xl relative">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">

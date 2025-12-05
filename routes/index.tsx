@@ -1,8 +1,7 @@
 import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
-import { define, getConfig, getSiteBaseUrl, Social } from "../utils.ts";
+import { define, getSiteBaseUrl } from "../utils.ts";
 import { getAllTags, getPosts, Post } from "../lib/posts.ts";
-import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import PostCard from "../components/PostCard.tsx";
 import Button from "../components/Button.tsx";
 import Layout from "../components/Layout.tsx";
@@ -13,30 +12,24 @@ interface Data {
   posts: Post[];
   allTags: string[];
   selectedTag?: string;
-  githubStats: GitHubStats | null;
-  social: Social[];
   siteBaseUrl: string;
-  repoUrl: string;
 }
 
 export const handler = define.handlers<Data>({
   async GET(ctx) {
     const url = new URL(ctx.req.url);
     const selectedTag = url.searchParams.get("tag") || undefined;
-    const [posts, allTags, githubStats, config, siteBaseUrl] = await Promise.all([
+    const [posts, allTags, siteBaseUrl] = await Promise.all([
       getPosts(selectedTag),
       getAllTags(),
-      getGitHubStats(),
-      getConfig(),
       getSiteBaseUrl(),
     ]);
-    const repoUrl = `https://github.com/${config.github.repo}`;
-    return page({ posts, allTags, selectedTag, githubStats, social: config.social, siteBaseUrl, repoUrl });
+    return page({ posts, allTags, selectedTag, siteBaseUrl });
   },
 });
 
 export default define.page(function Home({ data }: PageProps<Data>) {
-  const { posts, allTags, selectedTag, githubStats, social, siteBaseUrl, repoUrl } = data;
+  const { posts, allTags, selectedTag, siteBaseUrl } = data;
   const cardColors = [
     "bg-pastel-pink",
     "bg-pastel-yellow",
@@ -54,7 +47,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
           url={siteBaseUrl}
         />
       </Head>
-      <Layout githubStats={githubStats} social={social} repoUrl={repoUrl}>
+      <Layout>
         <div class="px-4 py-16 mx-auto max-w-5xl flex flex-col items-center justify-center">
           <div class="text-center mb-24 relative">
             {/* Mascot Placeholder */}
