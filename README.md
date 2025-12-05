@@ -48,4 +48,4 @@ This will watch the project directory and restart as necessary.
 - [x] **Tags & Categories:** Filter posts by topic.
 - [x] **SEO:** Dynamic meta tags and Open Graph images.
 - [x] **Date Formatting:** Use date-fns for consistent and localized date display.
-- [ ] **Github Integration:** Fetch and display repository stats.
+- [x] **Github Integration:** Fetch and display repository stats in footer.

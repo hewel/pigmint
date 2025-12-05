@@ -2,6 +2,7 @@ import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
 import { define, formatDateLong, SITE_BASE_URL } from "../utils.ts";
 import { getPost, Post } from "../lib/posts.ts";
+import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
 import Tag from "../components/Tag.tsx";
 import Layout from "../components/Layout.tsx";
@@ -9,18 +10,22 @@ import SEO from "../components/SEO.tsx";
 
 interface Data {
   post: Post | null;
+  githubStats: GitHubStats | null;
 }
 
 export const handler = define.handlers<Data>({
   async GET(ctx) {
     const { slug } = ctx.params;
-    const post = await getPost(slug);
-    return page({ post });
+    const [post, githubStats] = await Promise.all([
+      getPost(slug),
+      getGitHubStats(),
+    ]);
+    return page({ post, githubStats });
   },
 });
 
 export default define.page(function PostPage({ data }: PageProps<Data>) {
-  const { post } = data;
+  const { post, githubStats } = data;
 
   if (!post) {
     return <h1>404 - Post Not Found</h1>;
@@ -38,7 +43,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
           publishedTime={post.date}
         />
       </Head>
-      <Layout showBackButton>
+      <Layout showBackButton githubStats={githubStats}>
         <div class="px-4 py-12 mx-auto max-w-5xl relative">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">

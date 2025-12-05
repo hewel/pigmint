@@ -1,9 +1,23 @@
+import { page, PageProps } from "fresh";
 import { define, SITE_BASE_URL } from "../utils.ts";
 import { Head } from "fresh/runtime";
+import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import Layout from "../components/Layout.tsx";
 import SEO from "../components/SEO.tsx";
 
-export default define.page(function AboutPage() {
+interface Data {
+  githubStats: GitHubStats | null;
+}
+
+export const handler = define.handlers<Data>({
+  async GET() {
+    const githubStats = await getGitHubStats();
+    return page({ githubStats });
+  },
+});
+
+export default define.page(function AboutPage({ data }: PageProps<Data>) {
+  const { githubStats } = data;
   return (
     <>
       <Head>
@@ -13,7 +27,7 @@ export default define.page(function AboutPage() {
           url={`${SITE_BASE_URL}/about`}
         />
       </Head>
-      <Layout>
+      <Layout githubStats={githubStats}>
         <div class="px-4 py-12 mx-auto max-w-5xl">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">

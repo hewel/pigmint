@@ -2,6 +2,7 @@ import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
 import { define, SITE_BASE_URL } from "../utils.ts";
 import { getAllTags, getPosts, Post } from "../lib/posts.ts";
+import { getGitHubStats, GitHubStats } from "../lib/github.ts";
 import PostCard from "../components/PostCard.tsx";
 import Button from "../components/Button.tsx";
 import Layout from "../components/Layout.tsx";
@@ -12,20 +13,24 @@ interface Data {
   posts: Post[];
   allTags: string[];
   selectedTag?: string;
+  githubStats: GitHubStats | null;
 }
 
 export const handler = define.handlers<Data>({
   async GET(ctx) {
     const url = new URL(ctx.req.url);
     const selectedTag = url.searchParams.get("tag") || undefined;
-    const posts = await getPosts(selectedTag);
-    const allTags = await getAllTags();
-    return page({ posts, allTags, selectedTag });
+    const [posts, allTags, githubStats] = await Promise.all([
+      getPosts(selectedTag),
+      getAllTags(),
+      getGitHubStats(),
+    ]);
+    return page({ posts, allTags, selectedTag, githubStats });
   },
 });
 
 export default define.page(function Home({ data }: PageProps<Data>) {
-  const { posts, allTags, selectedTag } = data;
+  const { posts, allTags, selectedTag, githubStats } = data;
   const cardColors = [
     "bg-pastel-pink",
     "bg-pastel-yellow",
@@ -43,7 +48,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
           url={SITE_BASE_URL}
         />
       </Head>
-      <Layout>
+      <Layout githubStats={githubStats}>
         <div class="px-4 py-16 mx-auto max-w-5xl flex flex-col items-center justify-center">
           <div class="text-center mb-24 relative">
             {/* Mascot Placeholder */}

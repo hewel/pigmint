@@ -1,10 +1,13 @@
 import { getYear, Social } from "../utils.ts";
+import { GitHubStats as Stats } from "../lib/github.ts";
+import GitHubStats from "./GitHubStats.tsx";
 
 interface FooterProps {
   social: Social[];
+  githubStats?: Stats | null;
 }
 
-export default function Footer({ social }: FooterProps) {
+export default function Footer({ social, githubStats }: FooterProps) {
   return (
     <footer class="bg-whalies-navy text-white py-12 mt-auto">
       <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -14,6 +17,11 @@ export default function Footer({ social }: FooterProps) {
             A colorful journey through web development and design. Built with
             Fresh and Tailwind CSS.
           </p>
+          {githubStats && (
+            <div class="mt-4">
+              <GitHubStats stats={githubStats} />
+            </div>
+          )}
         </div>
         <div class="flex gap-6">
           {social.map((item) => (
