@@ -9,6 +9,7 @@ interface Data {
   githubStats: GitHubStats | null;
   social: Social[];
   siteBaseUrl: string;
+  repoUrl: string;
 }
 
 export const handler = define.handlers<Data>({
@@ -18,12 +19,13 @@ export const handler = define.handlers<Data>({
       getConfig(),
       getSiteBaseUrl(),
     ]);
-    return page({ githubStats, social: config.social, siteBaseUrl });
+    const repoUrl = `https://github.com/${config.github.repo}`;
+    return page({ githubStats, social: config.social, siteBaseUrl, repoUrl });
   },
 });
 
 export default define.page(function AboutPage({ data }: PageProps<Data>) {
-  const { githubStats, social, siteBaseUrl } = data;
+  const { githubStats, social, siteBaseUrl, repoUrl } = data;
   return (
     <>
       <Head>
@@ -33,7 +35,7 @@ export default define.page(function AboutPage({ data }: PageProps<Data>) {
           url={`${siteBaseUrl}/about`}
         />
       </Head>
-      <Layout githubStats={githubStats} social={social}>
+      <Layout githubStats={githubStats} social={social} repoUrl={repoUrl}>
         <div class="px-4 py-12 mx-auto max-w-5xl">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">

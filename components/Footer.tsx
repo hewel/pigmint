@@ -5,21 +5,22 @@ import GitHubStats from "./GitHubStats.tsx";
 interface FooterProps {
   social: Social[];
   githubStats?: Stats | null;
+  repoUrl?: string;
 }
 
-export default function Footer({ social, githubStats }: FooterProps) {
+export default function Footer({ social, githubStats, repoUrl }: FooterProps) {
   return (
     <footer class="bg-whalies-navy text-white py-12 mt-auto">
       <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="text-center md:text-left">
           <h2 class="font-cartoon text-2xl mb-2">PigMint Blog</h2>
-          <p class="text-gray-400 text-sm max-w-xs">
+          <p class="text-gray-400 text-sm max-w-xs mx-auto md:mx-0">
             A colorful journey through web development and design. Built with
             Fresh and Tailwind CSS.
           </p>
-          {githubStats && (
+          {githubStats && repoUrl && (
             <div class="mt-4">
-              <GitHubStats stats={githubStats} />
+              <GitHubStats stats={githubStats} repoUrl={repoUrl} />
             </div>
           )}
         </div>

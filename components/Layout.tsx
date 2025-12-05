@@ -9,16 +9,17 @@ interface LayoutProps {
   showBackButton?: boolean;
   githubStats?: GitHubStats | null;
   social: Social[];
+  repoUrl?: string;
 }
 
-export default function Layout({ children, showBackButton, githubStats, social }: LayoutProps) {
+export default function Layout({ children, showBackButton, githubStats, social, repoUrl }: LayoutProps) {
   return (
     <div class="flex flex-col min-h-screen">
       <Navbar showBackButton={showBackButton} />
       <main class="grow pt-24">
         {children}
       </main>
-      <Footer social={social} githubStats={githubStats} />
+      <Footer social={social} githubStats={githubStats} repoUrl={repoUrl} />
     </div>
   );
 }

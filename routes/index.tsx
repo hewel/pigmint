@@ -16,6 +16,7 @@ interface Data {
   githubStats: GitHubStats | null;
   social: Social[];
   siteBaseUrl: string;
+  repoUrl: string;
 }
 
 export const handler = define.handlers<Data>({
@@ -29,12 +30,13 @@ export const handler = define.handlers<Data>({
       getConfig(),
       getSiteBaseUrl(),
     ]);
-    return page({ posts, allTags, selectedTag, githubStats, social: config.social, siteBaseUrl });
+    const repoUrl = `https://github.com/${config.github.repo}`;
+    return page({ posts, allTags, selectedTag, githubStats, social: config.social, siteBaseUrl, repoUrl });
   },
 });
 
 export default define.page(function Home({ data }: PageProps<Data>) {
-  const { posts, allTags, selectedTag, githubStats, social, siteBaseUrl } = data;
+  const { posts, allTags, selectedTag, githubStats, social, siteBaseUrl, repoUrl } = data;
   const cardColors = [
     "bg-pastel-pink",
     "bg-pastel-yellow",
@@ -52,7 +54,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
           url={siteBaseUrl}
         />
       </Head>
-      <Layout githubStats={githubStats} social={social}>
+      <Layout githubStats={githubStats} social={social} repoUrl={repoUrl}>
         <div class="px-4 py-16 mx-auto max-w-5xl flex flex-col items-center justify-center">
           <div class="text-center mb-24 relative">
             {/* Mascot Placeholder */}

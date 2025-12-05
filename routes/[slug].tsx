@@ -13,6 +13,7 @@ interface Data {
   githubStats: GitHubStats | null;
   social: Social[];
   siteBaseUrl: string;
+  repoUrl: string;
 }
 
 export const handler = define.handlers<Data>({
@@ -24,12 +25,13 @@ export const handler = define.handlers<Data>({
       getConfig(),
       getSiteBaseUrl(),
     ]);
-    return page({ post, githubStats, social: config.social, siteBaseUrl });
+    const repoUrl = `https://github.com/${config.github.repo}`;
+    return page({ post, githubStats, social: config.social, siteBaseUrl, repoUrl });
   },
 });
 
 export default define.page(function PostPage({ data }: PageProps<Data>) {
-  const { post, githubStats, social, siteBaseUrl } = data;
+  const { post, githubStats, social, siteBaseUrl, repoUrl } = data;
 
   if (!post) {
     return <h1>404 - Post Not Found</h1>;
@@ -47,7 +49,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
           publishedTime={post.date}
         />
       </Head>
-      <Layout showBackButton githubStats={githubStats} social={social}>
+      <Layout showBackButton githubStats={githubStats} social={social} repoUrl={repoUrl}>
         <div class="px-4 py-12 mx-auto max-w-5xl relative">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">
