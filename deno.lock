@@ -39,6 +39,7 @@
     "npm:@prefresh/vite@^2.4.8": "2.4.11_preact@10.27.2_vite@7.2.4__picomatch@4.0.3",
     "npm:@tailwindcss/vite@^4.1.12": "4.1.16_vite@7.2.4__picomatch@4.0.3",
     "npm:@types/prismjs@^1.26.5": "1.26.5",
+    "npm:date-fns@^4.1.0": "4.1.0",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:marked@^15.0.12": "15.0.12",
@@ -867,6 +868,9 @@
     },
     "csstype@3.2.3": {
       "integrity": "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="
+    },
+    "date-fns@4.1.0": {
+      "integrity": "sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg=="
     },
     "debug@4.4.3": {
       "integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==",
@@ -1878,6 +1882,7 @@
       "npm:@preact/signals@^2.5.0",
       "npm:@tailwindcss/vite@^4.1.12",
       "npm:@types/prismjs@^1.26.5",
+      "npm:date-fns@^4.1.0",
       "npm:marked@^15.0.12",
       "npm:preact@^10.27.2",
       "npm:prismjs@^1.30.0",
