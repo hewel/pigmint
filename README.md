@@ -36,7 +36,7 @@ This will watch the project directory and restart as necessary.
 - [x] **Dark/Light Mode:** System-aware theme toggling with manual override.
 - [x] **Modern Typography:** Clean, accessible font stack.
 - [x] **Animations:** Subtle view transitions and hover effects.
-- [ ] **Tags & Categories UI:** Mobile-friendly filtering options.
+- [x] **Tags & Categories UI:** Mobile-friendly filtering options.
 
 ### 3. Functional Features
 

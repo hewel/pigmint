@@ -56,7 +56,7 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
               <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-cartoon font-black text-whalies-navy dark:text-gray-100">
                 {post.title}
               </h1>
-              <div class="flex justify-center gap-3 mt-4">
+              <div class="flex flex-wrap justify-center gap-3 mt-4">
                 {post.tags.map((tag) => (
                   <Tag name={tag} href={`/?tag=${tag}`} />
                 ))}

@@ -2,11 +2,11 @@ import { page, PageProps } from "fresh";
 import { Head } from "fresh/runtime";
 import { define, SITE_BASE_URL } from "../utils.ts";
 import { getAllTags, getPosts, Post } from "../lib/posts.ts";
-import Tag from "../components/Tag.tsx";
 import PostCard from "../components/PostCard.tsx";
 import Button from "../components/Button.tsx";
 import Layout from "../components/Layout.tsx";
 import SEO from "../components/SEO.tsx";
+import TagFilter from "../islands/TagFilter.tsx";
 
 interface Data {
   posts: Post[];
@@ -68,15 +68,8 @@ export default define.page(function Home({ data }: PageProps<Data>) {
             id="posts"
             class="w-full flex flex-col items-center scroll-mt-32"
           >
-            <div class="mb-12 flex flex-wrap justify-center gap-3">
-              <Tag name="All" href="/" active={!selectedTag} />
-              {allTags.map((tag) => (
-                <Tag
-                  name={tag}
-                  href={`/?tag=${tag}`}
-                  active={selectedTag === tag}
-                />
-              ))}
+            <div class="mb-12 w-full max-w-xl mx-auto md:max-w-none">
+              <TagFilter allTags={allTags} selectedTag={selectedTag} />
             </div>
 
             {posts.length === 0
