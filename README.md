@@ -26,6 +26,8 @@ This will watch the project directory and restart as necessary.
   - [x] **Advanced Rendering:** Use `marked` to parse Markdown to lexer then
         render to preact components and rehype-highlight for syntax
         highlighting.
+- [ ] **Markdown Parsing Enhancements:**
+  - [ ] Replace `react-markdown` with a more efficient parser.
 
 ### 2. UI/UX Features
 
@@ -34,6 +36,7 @@ This will watch the project directory and restart as necessary.
 - [x] **Dark/Light Mode:** System-aware theme toggling with manual override.
 - [x] **Modern Typography:** Clean, accessible font stack.
 - [x] **Animations:** Subtle view transitions and hover effects.
+- [ ] **Tags & Categories UI:** Mobile-friendly filtering options.
 
 ### 3. Functional Features
 
