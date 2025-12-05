@@ -51,14 +51,9 @@ export default define.page(function Home({ data }: PageProps<Data>) {
               <i class="ph-duotone ph-ghost text-6xl text-whalies-navy"></i>
             </div>
 
-            <h1 class="text-5xl md:text-7xl lg:text-8xl text-whalies-text mb-6 leading-tight font-cartoon drop-shadow-lg">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl text-whalies-text mb-6 leading-tight font-cartoon drop-shadow-lg">
               Welcome to the PigMint Blog
             </h1>
-            <p class="text-xl md:text-2xl font-body text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-10">
-              A fresh perspective on web development, design, and everything in
-              between. Explore our colorful articles and dive deep into exciting
-              topics.
-            </p>
             <Button href="#posts" className="text-xl px-8 py-4">
               Start Reading
             </Button>
