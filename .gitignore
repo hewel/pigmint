@@ -7,8 +7,9 @@
 
 # Fresh build directory
 _fresh/
-lib/posts.gen.ts
 # npm + other dependencies
 node_modules/
 vendor/
 
+# Post generated files
+lib/posts.toml
