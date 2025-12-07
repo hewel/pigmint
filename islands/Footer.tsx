@@ -1,5 +1,7 @@
 import useSWR from "swr";
 import { formatDistanceToNow } from "date-fns";
+import { CopyrightIcon } from "@phosphor-icons/react/dist/csr/Copyright";
+import { WarningIcon } from "@phosphor-icons/react/dist/csr/Warning";
 
 interface Social {
   name: string;
@@ -66,7 +68,7 @@ export default function Footer() {
             : error
             ? (
               <div class="mt-4 flex items-center justify-center md:justify-start gap-4 text-sm text-gray-500">
-                <i class="ph-duotone ph-warning text-lg"></i>
+                <WarningIcon weight="duotone" size={18} />
                 <span>Unable to load stats</span>
               </div>
             )
@@ -135,7 +137,7 @@ export default function Footer() {
         </div>
       </div>
       <div class="flex justify-center items-center gap-0.5 text-center mt-8 pt-8 border-t border-white/10 text-gray-500 text-sm">
-        <i class="ph-duotone ph-copyright"></i> {getYear()}{" "}
+        <CopyrightIcon weight="duotone" /> {getYear()}{" "}
         PigMint. All rights reserved.
       </div>
     </footer>

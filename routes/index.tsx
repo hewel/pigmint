@@ -7,6 +7,7 @@ import Button from "../components/Button.tsx";
 import Layout from "../components/Layout.tsx";
 import SEO from "../components/SEO.tsx";
 import TagFilter from "../islands/TagFilter.tsx";
+import { Ghost as GhostIcon } from "@phosphor-icons/react/dist/ssr/Ghost";
 
 interface Data {
   posts: Post[];
@@ -52,7 +53,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
           <div class="text-center mb-24 relative">
             {/* Mascot Placeholder */}
             <div class="logo-mascot w-48 h-48 mx-auto mb-8 bg-pastel-blue rounded-full border-4 border-whalies-navy flex items-center justify-center">
-              <i class="ph-duotone ph-ghost text-6xl text-whalies-navy"></i>
+              <GhostIcon weight="duotone" size={96} className="text-whalies-navy" />
             </div>
 
             <h1 class="text-5xl md:text-6xl lg:text-7xl text-whalies-text mb-6 leading-tight font-cartoon drop-shadow-lg">

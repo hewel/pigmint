@@ -28,6 +28,8 @@ This will watch the project directory and restart as necessary.
         highlighting.
 - [ ] **Markdown Parsing Enhancements:**
   - [ ] Replace `react-markdown` with a more efficient parser.
+- [ ] **Lighthouse Optimization:** Aim for 100/100 scores in performance,
+      accessibility, best practices, and SEO.
 
 ### 2. UI/UX Features
 
