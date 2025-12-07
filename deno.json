@@ -2,8 +2,14 @@
   "nodeModulesDir": "manual",
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check",
-    "dev": "vite",
-    "build": "vite build",
+    "dev": {
+      "command": "vite",
+      "dependencies": ["gen:icons"]
+    },
+    "build": {
+      "command": "vite build",
+      "dependencies": ["gen:icons"]
+    },
     "gen:icons": "deno run -A scripts/generate_icons.ts",
     "start": "deno serve -A _fresh/server.js",
     "update": "deno run -A -r jsr:@fresh/update ."
