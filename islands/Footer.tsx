@@ -2,6 +2,10 @@ import useSWR from "swr";
 import { formatDistanceToNow } from "date-fns";
 import { CopyrightIcon } from "@phosphor-icons/react/dist/csr/Copyright";
 import { WarningIcon } from "@phosphor-icons/react/dist/csr/Warning";
+import { StarIcon } from "@phosphor-icons/react/dist/csr/Star";
+import { GitForkIcon } from "@phosphor-icons/react/dist/csr/GitFork";
+import { ClockIcon } from "@phosphor-icons/react/dist/csr/Clock";
+import { ScalesIcon } from "@phosphor-icons/react/dist/csr/Scales";
 
 interface Social {
   name: string;
@@ -82,16 +86,16 @@ export default function Footer() {
                 title="View on GitHub"
               >
                 <span class="flex items-center gap-1.5">
-                  <i class="ph-duotone ph-star text-lg"></i>
+                  <StarIcon weight="duotone" className="text-lg" />
                   <span>{config.github.stats.stars}</span>
                 </span>
                 <span class="flex items-center gap-1.5">
-                  <i class="ph-duotone ph-git-fork text-lg"></i>
+                  <GitForkIcon weight="duotone" className="text-lg" />
                   <span>{config.github.stats.forks}</span>
                 </span>
                 {config.github.stats.lastCommit && (
                   <span class="flex items-center gap-1.5 whitespace-nowrap">
-                    <i class="ph-duotone ph-clock text-lg"></i>
+                    <ClockIcon weight="duotone" className="text-lg" />
                     <span>
                       {formatRelativeDate(config.github.stats.lastCommit)}
                     </span>
@@ -99,7 +103,7 @@ export default function Footer() {
                 )}
                 {config.github.stats.license && (
                   <span class="flex items-center gap-1.5">
-                    <i class="ph-duotone ph-scales text-lg"></i>
+                    <ScalesIcon weight="duotone" className="text-lg" />
                     <span>{config.github.stats.license}</span>
                   </span>
                 )}

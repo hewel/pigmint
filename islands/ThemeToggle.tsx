@@ -1,4 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
+import { MoonIcon } from "@phosphor-icons/react/dist/csr/Moon";
+import { SunIcon } from "@phosphor-icons/react/dist/csr/Sun";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -8,7 +10,7 @@ export default function ThemeToggle() {
     if (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+        globalThis.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       setTheme("dark");
       document.documentElement.classList.add("dark");
@@ -39,8 +41,8 @@ export default function ThemeToggle() {
       aria-label="Toggle Dark Mode"
     >
       {theme === "light"
-        ? <i class="ph-duotone ph-moon" style={{ fontSize: "20px" }}></i>
-        : <i class="ph-duotone ph-sun" style={{ fontSize: "20px" }}></i>}
+        ? <MoonIcon weight="duotone" size={20} />
+        : <SunIcon weight="duotone" size={20} />}
     </button>
   );
 }

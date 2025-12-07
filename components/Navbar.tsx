@@ -1,4 +1,4 @@
-import { ComponentChildren } from "preact";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr/ArrowLeft";
 import ThemeToggle from "../islands/ThemeToggle.tsx";
 
 interface NavbarProps {
@@ -14,7 +14,7 @@ export default function Navbar({ showBackButton }: NavbarProps) {
             href="/"
             class="flex items-center gap-2 font-cartoon font-bold text-xl text-whalies-navy dark:text-gray-100 hover:text-whalies-default transition-colors"
           >
-            <i class="ph-duotone ph-arrow-left"></i>
+            <ArrowLeftIcon weight="duotone" />
             <span class="hidden sm:inline">Back</span>
           </a>
         )

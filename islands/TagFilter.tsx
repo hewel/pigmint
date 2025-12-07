@@ -1,4 +1,8 @@
 import { useSignal } from "@preact/signals";
+import { FunnelIcon } from "@phosphor-icons/react/dist/csr/Funnel";
+import { CaretDownIcon } from "@phosphor-icons/react/dist/csr/CaretDown";
+import { ListBulletsIcon } from "@phosphor-icons/react/dist/csr/ListBullets";
+import { HashIcon } from "@phosphor-icons/react/dist/csr/Hash";
 
 interface TagFilterProps {
   allTags: string[];
@@ -22,15 +26,15 @@ export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
           class="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-3 border-whalies-navy rounded-2xl font-cartoon font-bold text-whalies-navy dark:text-gray-200 shadow-cartoon transition-all active:translate-y-0.5 active:shadow-cartoon-hover"
         >
           <span class="flex items-center gap-2">
-            <i class="ph-duotone ph-funnel text-xl"></i>
+            <FunnelIcon weight="duotone" className="text-xl" />
             {selectedTag ? `#${selectedTag}` : "All Posts"}
           </span>
-          <i
-            class={`ph-bold ph-caret-down text-lg transition-transform duration-200 ${
+          <CaretDownIcon
+            weight="bold"
+            className={`text-lg transition-transform duration-200 ${
               isOpen.value ? "rotate-180" : ""
             }`}
-          >
-          </i>
+          />
         </button>
 
         {/* Dropdown Menu */}
@@ -45,7 +49,7 @@ export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
                     : "text-whalies-navy dark:text-gray-200 hover:bg-pastel-blue/50"
                 }`}
               >
-                <i class="ph-duotone ph-list-bullets mr-2"></i>
+                <ListBulletsIcon weight="duotone" className="mr-2" />
                 All Posts
               </a>
               {allTags.map((tag) => (
@@ -58,7 +62,7 @@ export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
                       : "text-whalies-navy dark:text-gray-200 hover:bg-pastel-pink/50"
                   }`}
                 >
-                  <i class="ph-duotone ph-hash mr-2"></i>
+                  <HashIcon weight="duotone" className="mr-2" />
                   {tag}
                 </a>
               ))}
