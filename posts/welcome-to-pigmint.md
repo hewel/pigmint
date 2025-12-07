@@ -36,7 +36,7 @@ This site is running on:
 ## 🤖 Built with AI
 
 Here's a fun fact: this entire blog—from the code to the content—was created
-with the help of AI (Gemini Cli). It's a testament to how
-far AI-assisted development has come!
+with the help of AI (Gemini Cli). It's a testament to how far AI-assisted
+development has come!
 
 Stay tuned for more updates as we build this out! 🚀

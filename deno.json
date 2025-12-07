@@ -4,14 +4,15 @@
     "check": "deno fmt --check . && deno lint . && deno check",
     "dev": {
       "command": "vite",
-      "dependencies": ["gen:icons"]
+      "dependencies": ["gen:icons", "gen"]
     },
     "build": {
       "command": "vite build",
-      "dependencies": ["gen:icons"]
+      "dependencies": ["gen:icons", "gen"]
     },
+    "gen": "deno run -A scripts/gen_content.ts",
     "gen:icons": "deno run -A scripts/generate_icons.ts",
-    "start": "deno serve -A _fresh/server.js",
+    "start": "deno task gen && deno serve -A _fresh/server.js",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
   "lint": {

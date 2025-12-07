@@ -18,7 +18,7 @@ async function getAvailableIcons(): Promise<Set<string>> {
         icons.add(entry.name.replace(".d.ts", ""));
       }
     }
-  } catch (e) {
+  } catch (_e) {
     // console.warn("Could not read icon directory, falling back to heuristics:", e);
   }
   return icons;

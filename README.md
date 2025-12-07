@@ -30,6 +30,8 @@ This will watch the project directory and restart as necessary.
   - [ ] Replace `react-markdown` with a more efficient parser.
 - [ ] **Lighthouse Optimization:** Aim for 100/100 scores in performance,
       accessibility, best practices, and SEO.
+- [ ] **Posts data on Build Time:** Pre-fetch and statically generate posts data
+      during build for optimal performance.
 
 ### 2. UI/UX Features
 
@@ -49,7 +51,8 @@ This will watch the project directory and restart as necessary.
   - Author bio section.
 - [x] **Tags & Categories:** Filter posts by topic.
 - [x] **SEO:** Dynamic meta tags and Open Graph images.
-- [x] **Date Formatting:** Use date-fns for consistent and localized date display.
+- [x] **Date Formatting:** Use date-fns for consistent and localized date
+      display.
 - [x] **Github Integration:** Fetch and display repository stats in footer.
 - [x] **Runtime Configuration:** Use Deno's file system API to read config.toml
       at runtime for dynamic updates without redeployment.

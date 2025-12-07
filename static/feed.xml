@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Pigmint</title>
+  <link>https://blog.pigmint.me</link>
+  <description>A fresh, colorful, and bold space for thoughts.</description>
+  
+  <item>
+    <title>Welcome to Pigmint!</title>
+    <link>https://blog.pigmint.me/welcome-to-pigmint</link>
+    <description>Introducing Pigmint: A fresh, colorful, and bold space for thoughts.</description>
+    <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
+    <guid>https://blog.pigmint.me/welcome-to-pigmint</guid>
+  </item>
+</channel>
+</rss>
