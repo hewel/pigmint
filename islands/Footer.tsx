@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { formatDistanceToNow } from "date-fns";
+import { SocialIcons } from "../components/SocialIcons.tsx";
 import { CopyrightIcon } from "@phosphor-icons/react/dist/csr/Copyright";
 import { WarningIcon } from "@phosphor-icons/react/dist/csr/Warning";
 import { StarIcon } from "@phosphor-icons/react/dist/csr/Star";
@@ -125,18 +126,21 @@ export default function Footer() {
               </div>
             )
             : (
-              socialLinks.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.url}
-                  class="hover:text-whalies-default transition-colors"
-                  title={item.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i class={`ph-duotone ph-${item.icon}-logo text-2xl`}></i>
-                </a>
-              ))
+              socialLinks.map((item) => {
+                const Icon = SocialIcons[item.icon];
+                return (
+                  <a
+                    key={item.name}
+                    href={item.url}
+                    class="hover:text-whalies-default transition-colors"
+                    title={item.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {Icon && <Icon weight="duotone" className="text-2xl" />}
+                  </a>
+                );
+              })
             )}
         </div>
       </div>
