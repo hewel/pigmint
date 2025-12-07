@@ -6,6 +6,9 @@ import MarkdownRenderer from "../components/MarkdownRenderer.tsx";
 import Tag from "../components/Tag.tsx";
 import Layout from "../components/Layout.tsx";
 import SEO from "../components/SEO.tsx";
+import { CalendarBlankIcon } from "@phosphor-icons/react/dist/ssr/CalendarBlank";
+import { ClockIcon } from "@phosphor-icons/react/dist/ssr/Clock";
+import { UserIcon } from "@phosphor-icons/react/dist/ssr/User";
 
 interface Data {
   post: Post | null;
@@ -46,23 +49,28 @@ export default define.page(function PostPage({ data }: PageProps<Data>) {
         <div class="px-4 py-12 mx-auto max-w-5xl relative">
           <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="mb-8 text-center">
-              <div class="flex flex-wrap justify-center gap-3 mb-4">
-                <div class="bg-pastel-yellow px-4 py-1 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black text-whalies-navy">
-                  {formatDateLong(post.date)}
-                </div>
-                <div class="bg-pastel-blue px-4 py-1 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black text-whalies-navy">
-                  {post.readingTime} min read
-                </div>
-                <div class="bg-pastel-pink px-4 py-1 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black text-whalies-navy">
-                  By {post.author}
-                </div>
-              </div>
               <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-cartoon font-black text-whalies-navy dark:text-gray-100">
                 {post.title}
               </h1>
+              <div class="flex flex-wrap justify-center items-center gap-4 mb-6 text-whalies-navy dark:text-gray-300 font-cartoon text-sm md:text-base">
+                <div class="flex items-center gap-1.5">
+                  <CalendarBlankIcon weight="duotone" className="text-lg" />
+                  <span>{formatDateLong(post.date)}</span>
+                </div>
+                <div class="hidden md:block w-1.5 h-1.5 rounded-full bg-whalies-navy/30 dark:bg-gray-500" />
+                <div class="flex items-center gap-1.5">
+                  <ClockIcon weight="duotone" className="text-lg" />
+                  <span>{post.readingTime} min read</span>
+                </div>
+                <div class="hidden md:block w-1.5 h-1.5 rounded-full bg-whalies-navy/30 dark:bg-gray-500" />
+                <div class="flex items-center gap-1.5">
+                  <UserIcon weight="duotone" className="text-lg" />
+                  <span>{post.author}</span>
+                </div>
+              </div>
               <div class="flex flex-wrap justify-center gap-3 mt-4">
                 {post.tags.map((tag) => (
-                  <Tag name={tag} href={`/?tag=${tag}`} />
+                  <Tag key={tag} name={tag} href={`/?tag=${tag}`} />
                 ))}
               </div>
             </header>
