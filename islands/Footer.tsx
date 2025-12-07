@@ -7,6 +7,7 @@ import { StarIcon } from "@phosphor-icons/react/dist/csr/Star";
 import { GitForkIcon } from "@phosphor-icons/react/dist/csr/GitFork";
 import { ClockIcon } from "@phosphor-icons/react/dist/csr/Clock";
 import { ScalesIcon } from "@phosphor-icons/react/dist/csr/Scales";
+import { RssIcon } from "@phosphor-icons/react/dist/csr/Rss";
 
 interface Social {
   name: string;
@@ -126,25 +127,36 @@ export default function Footer() {
               </div>
             )
             : (
-              socialLinks.map((item) => {
-                const Icon = SocialIcons[item.icon];
-                return (
-                  <a
-                    key={item.name}
-                    href={item.url}
-                    class="hover:text-whalies-default transition-colors"
-                    title={item.name}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {Icon && <Icon weight="duotone" className="text-2xl" />}
-                  </a>
-                );
-              })
+              <>
+                {socialLinks.map((item) => {
+                  const Icon = SocialIcons[item.icon];
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.url}
+                      class="hover:text-whalies-default transition-colors"
+                      title={item.name}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {Icon && <Icon weight="duotone" className="text-2xl" />}
+                    </a>
+                  );
+                })}
+                <a
+                  href="/feed.xml"
+                  class="hover:text-whalies-default transition-colors"
+                  title="RSS Feed"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <RssIcon weight="duotone" className="text-2xl" />
+                </a>
+              </>
             )}
         </div>
       </div>
-      <div class="flex justify-center items-center gap-0.5 text-center mt-8 pt-8 border-t border-white/10 text-gray-500 text-sm">
+      <div class="flex justify-center items-center gap-0.5 text-center mt-8 pt-8 border-t border-white/10 text-gray-400 text-sm">
         <CopyrightIcon weight="duotone" /> {getYear()}{" "}
         PigMint. All rights reserved.
       </div>

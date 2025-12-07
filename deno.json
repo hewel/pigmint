@@ -17,15 +17,13 @@
   },
   "lint": {
     "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
+      "tags": ["fresh", "recommended"]
     }
   },
-  "exclude": [
-    "**/_fresh/*"
-  ],
+  "fmt": {
+    "exclude": ["./static", "./lib/posts.gen.ts"]
+  },
+  "exclude": ["**/_fresh/*"],
   "imports": {
     "@/": "./",
     "@phosphor-icons/core": "npm:@phosphor-icons/core@^2.1.1",
@@ -50,12 +48,7 @@
     "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.12"
   },
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.asynciterable",
-      "dom.iterable",
-      "deno.ns"
-    ],
+    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns"],
     "jsx": "precompile",
     "jsxImportSource": "preact",
     "jsxPrecompileSkipElements": [
@@ -74,8 +67,6 @@
       "noscript",
       "template"
     ],
-    "types": [
-      "vite/client"
-    ]
+    "types": ["vite/client"]
   }
 }
