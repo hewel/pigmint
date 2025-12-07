@@ -7,7 +7,7 @@ import Button from "../components/Button.tsx";
 import Layout from "../components/Layout.tsx";
 import SEO from "../components/SEO.tsx";
 import TagFilter from "../islands/TagFilter.tsx";
-import { Ghost as GhostIcon } from "@phosphor-icons/react/dist/ssr/Ghost";
+import { GhostIcon } from "@phosphor-icons/react/dist/ssr/Ghost";
 
 interface Data {
   posts: Post[];
