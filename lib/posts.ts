@@ -1,3 +1,4 @@
+import { getConfig } from "../utils.ts";
 import { parse } from "@std/toml";
 
 export interface Post {
@@ -21,8 +22,7 @@ async function loadPosts(): Promise<Post[]> {
   if (cachedPosts) return cachedPosts;
 
   try {
-    const configText = await Deno.readTextFile("config.toml");
-    const config = parse(configText) as { base?: { postsDir?: string } };
+    const config = await getConfig();
     const postsDir = config.base?.postsDir || "./posts";
     const text = await Deno.readTextFile(`${postsDir}/posts.toml`);
     const data = parse(text) as unknown as PostsConfig;

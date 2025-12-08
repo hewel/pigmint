@@ -1,12 +1,6 @@
-import { parse } from "@std/toml";
+import { getConfig } from "../utils.ts";
 
-interface Config {
-  social?: {
-    name: string;
-    icon: string;
-    url: string;
-  }[];
-}
+
 
 const ICON_DIR = "./node_modules/@phosphor-icons/react/dist/csr";
 
@@ -26,8 +20,7 @@ async function getAvailableIcons(): Promise<Set<string>> {
 
 async function main() {
   console.log("Generating social icons...");
-  const configText = await Deno.readTextFile("config.toml");
-  const config = parse(configText) as Config;
+  const config = await getConfig();
 
   if (!config.social || config.social.length === 0) {
     console.log("No social icons found in config.toml");

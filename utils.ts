@@ -12,6 +12,7 @@ export interface Config {
 
 export interface Base {
   url: string;
+  postsDir?: string;
 }
 
 export interface Social {

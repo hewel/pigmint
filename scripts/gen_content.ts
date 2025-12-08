@@ -1,6 +1,7 @@
 import { extract } from "@std/front-matter/any";
-import { parse, stringify } from "@std/toml";
+import { stringify } from "@std/toml";
 import { join } from "@std/path";
+import { getConfig } from "../utils.ts";
 
 interface Post {
   slug: string;
@@ -13,12 +14,7 @@ interface Post {
   author?: string;
 }
 
-interface Config {
-  base: {
-    url: string;
-    postsDir?: string;
-  };
-}
+
 
 function calculateReadingTime(content: string): number {
   const wordsPerMinute = 200;
@@ -30,8 +26,7 @@ async function main() {
   console.log("Generating content...");
 
   // 1. Read Config
-  const configText = await Deno.readTextFile("config.toml");
-  const config = parse(configText) as unknown as Config;
+  const config = await getConfig();
   const baseUrl = config.base.url.replace(/\/$/, "");
   const postsDir = config.base.postsDir || "./posts";
 
