@@ -21,7 +21,10 @@ async function loadPosts(): Promise<Post[]> {
   if (cachedPosts) return cachedPosts;
 
   try {
-    const text = await Deno.readTextFile("./lib/posts.toml");
+    const configText = await Deno.readTextFile("config.toml");
+    const config = parse(configText) as { base?: { postsDir?: string } };
+    const postsDir = config.base?.postsDir || "./posts";
+    const text = await Deno.readTextFile(`${postsDir}/posts.toml`);
     const data = parse(text) as unknown as PostsConfig;
     cachedPosts = data.posts;
     return cachedPosts;

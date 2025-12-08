@@ -1,5 +1,6 @@
 import { extract } from "@std/front-matter/any";
 import { parse, stringify } from "@std/toml";
+import { join } from "@std/path";
 
 interface Post {
   slug: string;
@@ -15,6 +16,7 @@ interface Post {
 interface Config {
   base: {
     url: string;
+    postsDir?: string;
   };
 }
 
@@ -31,13 +33,14 @@ async function main() {
   const configText = await Deno.readTextFile("config.toml");
   const config = parse(configText) as unknown as Config;
   const baseUrl = config.base.url.replace(/\/$/, "");
+  const postsDir = config.base.postsDir || "./posts";
 
   // 2. Read Posts
   const posts: Post[] = [];
-  for await (const dirEntry of Deno.readDir("./posts")) {
+  for await (const dirEntry of Deno.readDir(postsDir)) {
     if (dirEntry.isFile && dirEntry.name.endsWith(".md")) {
       const slug = dirEntry.name.replace(".md", "");
-      const path = `./posts/${dirEntry.name}`;
+      const path = join(postsDir, dirEntry.name);
       const fileContent = await Deno.readTextFile(path);
       const { attrs, body } = extract(fileContent);
       const attributes = attrs as {
@@ -73,7 +76,7 @@ async function main() {
 
   // 3. Generate posts.toml
   const postsToml = stringify({ posts });
-  await Deno.writeTextFile("./lib/posts.toml", postsToml);
+  await Deno.writeTextFile(join(postsDir, "posts.toml"), postsToml);
   console.log("Generated posts.toml");
 
   // 4. Generate static/sitemap.xml

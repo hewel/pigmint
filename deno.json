@@ -30,6 +30,7 @@
     "@phosphor-icons/react": "npm:@phosphor-icons/react@^2.1.10",
     "@phosphor-icons/react/": "npm:@phosphor-icons/react@^2.1.10/",
     "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
+    "@std/path": "jsr:@std/path@^1.1.3",
     "@std/toml": "jsr:@std/toml@^1.0.11",
     "@types/prismjs": "npm:@types/prismjs@^1.26.5",
     "date-fns": "npm:date-fns@^4.1.0",

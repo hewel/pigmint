@@ -1,5 +1,6 @@
 [base]
 url = "https://blog.pigmint.me"
+postsDir = "./posts"
 [github]
 repo = "hewel/pigmint"
 

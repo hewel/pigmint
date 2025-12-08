@@ -1,0 +1,10 @@
+
+[[posts]]
+slug = "welcome-to-pigmint"
+title = "Welcome to Pigmint!"
+date = "2025-12-04"
+excerpt = "Introducing Pigmint: A fresh, colorful, and bold space for thoughts."
+content = "# Hello, World! 👋\n\nWelcome to **Pigmint**!\n\nI'm excited to introduce this new blog, built on the bleeding edge with\n[Deno](https://deno.com/) and [Fresh](https://fresh.deno.dev/).\n\n## Why Pigmint?\n\nPigmint isn't just another minimal blog. It's loud, it's proud, and it's painted\nin pastel. Inspired by the \"Neubrutalism\" design trend (and specifically the\n\"Whalies\" theme), we believe that content should pop! 💥\n\n### What to expect?\n\n- **Bold Ideas:** Just like our borders.\n- **Fresh Content:** Served fast, directly from the edge.\n- **Colorful Vibes:** Because the web doesn't have to be black and white.\n\n## Under the Hood\n\nThis site is running on:\n\n- **Runtime:** Deno 2.0\n- **Framework:** Fresh 2.0\n- **Styling:** Tailwind CSS v4\n\n## 🤖 Built with AI\n\nHere's a fun fact: this entire blog—from the code to the content—was created\nwith the help of AI (Gemini Cli). It's a testament to how far AI-assisted\ndevelopment has come!\n\nStay tuned for more updates as we build this out! 🚀\n"
+readingTime = 1
+tags = ["welcome","pigmint","intro","neubrutalism"]
+author = "Hewel"
