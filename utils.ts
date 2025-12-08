@@ -32,36 +32,47 @@ export const define = createDefine<State>();
 // Runtime configuration with caching
 let cachedConfig: Config | null = null;
 let configMtime: number | null = null;
+let refreshPromise: Promise<Config> | null = null;
 
 /**
  * Get configuration from config.toml at runtime.
  * Caches the config and only reloads when the file is modified.
  * This allows dynamic updates without redeployment.
  */
-export async function getConfig(): Promise<Config> {
-  try {
-    const stat = await Deno.stat("config.toml");
-    const mtime = stat.mtime?.getTime() ?? 0;
+export function getConfig(): Promise<Config> {
+  // If a refresh is already in progress, join it
+  if (refreshPromise) return refreshPromise;
 
-    // Return cached config if file hasn't changed
-    if (cachedConfig && configMtime === mtime) {
+  refreshPromise = (async () => {
+    try {
+      const stat = await Deno.stat("config.toml");
+      const mtime = stat.mtime?.getTime() ?? 0;
+
+      // Return cached config if file hasn't changed
+      if (cachedConfig && configMtime === mtime) {
+        return cachedConfig;
+      }
+
+      // Read and parse the config file
+      const configData = await Deno.readTextFile("config.toml");
+      cachedConfig = parse(configData) as unknown as Config;
+      configMtime = mtime;
+
       return cachedConfig;
+    } catch (error) {
+       // If we have a cached config, return it on error
+       // But we still re-throw if there is no cache, so the caller knows it failed
+      if (cachedConfig) {
+        console.warn("Failed to reload config, using cached version:", error);
+        return cachedConfig;
+      }
+      throw error;
+    } finally {
+      refreshPromise = null;
     }
+  })();
 
-    // Read and parse the config file
-    const configData = await Deno.readTextFile("config.toml");
-    cachedConfig = parse(configData) as unknown as Config;
-    configMtime = mtime;
-
-    return cachedConfig;
-  } catch (error) {
-    // If we have a cached config, return it on error
-    if (cachedConfig) {
-      console.warn("Failed to reload config, using cached version:", error);
-      return cachedConfig;
-    }
-    throw error;
-  }
+  return refreshPromise;
 }
 
 /**
