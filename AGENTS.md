@@ -19,8 +19,6 @@
 - **Formatting:** Standard `deno fmt`.
 - **Types:** Strict TypeScript. No `any`. Use interfaces for Props.
 - **State:** Use Signals (`@preact/signals`) in islands.
-<<<<<<< Updated upstream
-=======
 
 # Fresh Best Practices
 
@@ -131,4 +129,3 @@ export const handler: Handlers = {
 *   **Adhere to Code of Conduct:** Follow the Contributor Covenant Code of Conduct for positive interactions within the community, as outlined in [Code of Conduct and Enforcement](#community-and-contribution-guidelines-code-of-conduct-and-enforcement).
 *   **Pass [`deno task ok`](%2Fdenoland%2Ffresh%2Fdeno.json#L9):** Before submitting pull requests, ensure all checks pass by running [`deno task ok`](%2Fdenoland%2Ffresh%2Fdeno.json#L9) to adhere to project quality and style standards. See [Pull Request Submission Guidelines](#community-and-contribution-guidelines-pull-request-submission-guidelines).
 *   **Keep Deno Up-to-Date:** Ensure you are using the minimum required Deno version (e.g., "1.43.1" or higher) for compatibility and access to the latest features. The [`@fresh/update`](%2Fdenoland%2Ffresh%2Fpackages%2Finit%2Fsrc%2Finit.ts#L569) tool will check this. See `packages/update/src/utils.ts`.
->>>>>>> Stashed changes
