@@ -11,14 +11,21 @@ export interface GitHubStats {
   language: string | null;
 }
 
-// In-memory cache
-let cache: { data: GitHubStats; timestamp: number } | null = null;
+const kv = await Deno.openKv();
+
+interface CachedGitHubStats {
+  data: GitHubStats;
+  timestamp: number;
+}
+
 const CACHE_TTL = 60 * 60 * 1000; // 1 hour in milliseconds
 
 export async function getGitHubStats(): Promise<GitHubStats | null> {
-  // Check cache first
-  if (cache && Date.now() - cache.timestamp < CACHE_TTL) {
-    return cache.data;
+  // Check KV cache first
+  const entry = await kv.get<CachedGitHubStats>(["github", "stats"]);
+
+  if (entry.value && Date.now() - entry.value.timestamp < CACHE_TTL) {
+    return entry.value.data;
   }
 
   try {
@@ -53,8 +60,8 @@ export async function getGitHubStats(): Promise<GitHubStats | null> {
       language: repoData.language || null,
     };
 
-    // Update cache
-    cache = { data: stats, timestamp: Date.now() };
+    // Update KV cache
+    await kv.set(["github", "stats"], { data: stats, timestamp: Date.now() });
 
     return stats;
   } catch (error) {
