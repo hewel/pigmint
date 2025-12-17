@@ -14,7 +14,19 @@ interface Post {
   author?: string;
 }
 
-
+// Helper to escape XML characters
+function escapeXml(unsafe: string): string {
+  return unsafe.replace(/[<>&'"]/g, (c) => {
+    switch (c) {
+      case "<": return "&lt;";
+      case ">": return "&gt;";
+      case "&": return "&amp;";
+      case "'": return "&apos;";
+      case '"': return "&quot;";
+      default: return c;
+    }
+  });
+}
 
 function calculateReadingTime(content: string): number {
   const wordsPerMinute = 200;
@@ -92,7 +104,7 @@ async function main() {
       .map(
         (post) => `
   <url>
-    <loc>${baseUrl}/${post.slug}</loc>
+    <loc>${baseUrl}/${escapeXml(post.slug)}</loc>
     <lastmod>${post.date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -117,11 +129,11 @@ async function main() {
       .map(
         (post) => `
   <item>
-    <title>${post.title}</title>
-    <link>${baseUrl}/${post.slug}</link>
-    <description>${post.excerpt}</description>
+    <title>${escapeXml(post.title)}</title>
+    <link>${baseUrl}/${escapeXml(post.slug)}</link>
+    <description>${escapeXml(post.excerpt)}</description>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-    <guid>${baseUrl}/${post.slug}</guid>
+    <guid>${baseUrl}/${escapeXml(post.slug)}</guid>
   </item>`,
       )
       .join("")
