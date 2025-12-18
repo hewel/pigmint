@@ -1,6 +1,7 @@
 # Pigmint
 
-A modern, fast, and accessible blog platform built with Fresh, Deno, and Tailwind CSS.
+A modern, fast, and accessible blog platform built with Fresh, Deno, and
+Tailwind CSS.
 
 [![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
 

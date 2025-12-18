@@ -60,8 +60,8 @@ export function getConfig(): Promise<Config> {
 
       return cachedConfig;
     } catch (error) {
-       // If we have a cached config, return it on error
-       // But we still re-throw if there is no cache, so the caller knows it failed
+      // If we have a cached config, return it on error
+      // But we still re-throw if there is no cache, so the caller knows it failed
       if (cachedConfig) {
         console.warn("Failed to reload config, using cached version:", error);
         return cachedConfig;

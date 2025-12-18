@@ -2,6 +2,7 @@ import { extract } from "@std/front-matter/any";
 import { stringify } from "@std/toml";
 import { join } from "@std/path";
 import { getConfig } from "../utils.ts";
+import { escapeXml } from "../lib/security.ts";
 
 interface Post {
   slug: string;
@@ -12,20 +13,6 @@ interface Post {
   readingTime: number;
   tags: string[];
   author?: string;
-}
-
-// Helper to escape XML characters
-function escapeXml(unsafe: string): string {
-  return unsafe.replace(/[<>&'"]/g, (c) => {
-    switch (c) {
-      case "<": return "&lt;";
-      case ">": return "&gt;";
-      case "&": return "&amp;";
-      case "'": return "&apos;";
-      case '"': return "&quot;";
-      default: return c;
-    }
-  });
 }
 
 function calculateReadingTime(content: string): number {
@@ -105,7 +92,7 @@ async function main() {
         (post) => `
   <url>
     <loc>${baseUrl}/${escapeXml(post.slug)}</loc>
-    <lastmod>${post.date}</lastmod>
+    <lastmod>${escapeXml(post.date)}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`,

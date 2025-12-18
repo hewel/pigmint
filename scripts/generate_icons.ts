@@ -1,7 +1,5 @@
 import { getConfig } from "../utils.ts";
 
-
-
 const ICON_DIR = "./node_modules/@phosphor-icons/react/dist/csr";
 
 async function getAvailableIcons(): Promise<Set<string>> {

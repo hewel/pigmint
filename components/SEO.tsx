@@ -1,4 +1,5 @@
 import { SITE_BASE_URL } from "../utils.ts";
+import { escapeHtml, sanitizeMetaContent } from "../lib/security.ts";
 
 interface SEOProps {
   title: string;
@@ -28,12 +29,15 @@ export default function SEO({
 
   return (
     <>
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <title>{escapeHtml(fullTitle)}</title>
+      <meta name="description" content={sanitizeMetaContent(description)} />
 
       {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={sanitizeMetaContent(fullTitle)} />
+      <meta
+        property="og:description"
+        content={sanitizeMetaContent(description)}
+      />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
@@ -41,7 +45,7 @@ export default function SEO({
 
       {/* Article specific */}
       {type === "article" && author && (
-        <meta property="article:author" content={author} />
+        <meta property="article:author" content={sanitizeMetaContent(author)} />
       )}
       {type === "article" && publishedTime && (
         <meta property="article:published_time" content={publishedTime} />
@@ -49,8 +53,11 @@ export default function SEO({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={sanitizeMetaContent(fullTitle)} />
+      <meta
+        name="twitter:description"
+        content={sanitizeMetaContent(description)}
+      />
       <meta name="twitter:image" content={imageUrl} />
 
       {/* Telegram */}
@@ -59,7 +66,7 @@ export default function SEO({
       <meta property="og:image:height" content="630" />
 
       {/* Threads / Instagram */}
-      <meta property="og:image:alt" content={fullTitle} />
+      <meta property="og:image:alt" content={sanitizeMetaContent(fullTitle)} />
       <meta property="og:locale" content="en_US" />
     </>
   );

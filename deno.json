@@ -29,6 +29,7 @@
     "@phosphor-icons/core": "npm:@phosphor-icons/core@^2.1.1",
     "@phosphor-icons/react": "npm:@phosphor-icons/react@^2.1.10",
     "@phosphor-icons/react/": "npm:@phosphor-icons/react@^2.1.10/",
+    "@std/assert": "jsr:@std/assert@^1.0.16",
     "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
     "@std/path": "jsr:@std/path@^1.1.3",
     "@std/toml": "jsr:@std/toml@^1.0.11",
@@ -42,6 +43,7 @@
     "prismjs": "npm:prismjs@^1.30.0",
     "react-markdown": "npm:react-markdown@^10.1.0",
     "rehype-highlight": "npm:rehype-highlight@^7.0.2",
+    "rehype-sanitize": "npm:rehype-sanitize@^6.0.0",
     "remark-gfm": "npm:remark-gfm@^4.0.1",
     "swr": "npm:swr@^2.3.7",
     "vite": "npm:vite@^7.1.3",
@@ -49,7 +51,13 @@
     "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.12"
   },
   "compilerOptions": {
-    "lib": ["dom", "dom.asynciterable", "dom.iterable", "deno.ns", "deno.unstable"],
+    "lib": [
+      "dom",
+      "dom.asynciterable",
+      "dom.iterable",
+      "deno.ns",
+      "deno.unstable"
+    ],
     "jsx": "precompile",
     "jsxImportSource": "preact",
     "jsxPrecompileSkipElements": [
@@ -69,5 +77,9 @@
       "template"
     ],
     "types": ["vite/client"]
+  },
+  "deploy": {
+    "org": "hewel",
+    "app": "pigmint"
   }
 }
