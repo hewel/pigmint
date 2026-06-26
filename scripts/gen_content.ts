@@ -1,6 +1,7 @@
 import { extract } from "@std/front-matter/any";
 import { stringify } from "@std/toml";
 import { join } from "@std/path";
+import { markdownToHtml } from "satteri";
 import { getConfig } from "../utils.ts";
 import { escapeXml } from "../lib/security.ts";
 
@@ -52,12 +53,16 @@ async function main() {
         processedBody = processedBody.substring(titleHeading.length).trim();
       }
 
+      const { html } = markdownToHtml(processedBody, {
+        features: { gfm: true },
+      });
+
       posts.push({
         slug,
         title: attributes.title,
         date: attributes.date,
         excerpt: attributes.excerpt,
-        content: processedBody,
+        content: html,
         readingTime: calculateReadingTime(body),
         tags: attributes.tags || [],
         author: attributes.author || "Anonymous",

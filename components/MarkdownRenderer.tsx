@@ -1,21 +1,13 @@
-import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import rehypeSanitize from "rehype-sanitize";
-import remarkGfm from "remark-gfm";
-
+// deno-lint-ignore-file react-no-danger -- content is Satteri-rendered at build time from owner-authored posts.
 interface MarkdownRendererProps {
   content: string;
 }
 
 export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
-    <div class="markdown-body">
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeSanitize, rehypeHighlight]}
-      >
-        {content}
-      </ReactMarkdown>
-    </div>
+    <div
+      class="markdown-body"
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   );
 }

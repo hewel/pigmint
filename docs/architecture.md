@@ -4,7 +4,7 @@
 
 - **Framework:** Fresh v2 (Deno) with Vite and Preact.
 - **Styling:** Tailwind CSS v4 (see `docs/design-system.md`).
-- **Markdown:** `marked` + `@std/front-matter`.
+- **Markdown:** `satteri` (build-time rendering) + `@std/front-matter`.
 - **Fonts:** Google Fonts (Fredoka, Nunito).
 
 ## Directory Structure

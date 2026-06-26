@@ -2,8 +2,8 @@
 
 ## Implemented Protections
 
-1. **XSS in Markdown** — `rehype-sanitize` plugin in
-   `components/MarkdownRenderer.tsx`.
+1. **Markdown HTML Boundary** — Owner-authored posts render at build time in
+   `scripts/gen_content.ts`; CSP in `main.ts` limits script execution.
 2. **Safe Theme Init** — `islands/ThemeInitializer.tsx` uses direct DOM
    manipulation instead of `innerHTML`.
 3. **CSP Headers** — Comprehensive Content-Security-Policy set in `main.ts`

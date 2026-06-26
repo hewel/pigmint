@@ -70,9 +70,9 @@ export default define.page(function AboutPage({ data }: PageProps<Data>) {
                   "Whalies" inspired theme.
                 </li>
                 <li>
-                  <strong>react-markdown & rehype-highlight:</strong>{" "}
-                  For robust Markdown parsing and beautiful syntax highlighting
-                  of code blocks.
+                  <strong>Satteri & highlight.js:</strong>{" "}
+                  Build-time Markdown rendering with client-side code
+                  highlighting.
                 </li>
                 <li>
                   <strong>Phosphor Icons:</strong>{" "}

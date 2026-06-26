@@ -38,11 +38,14 @@ export default define.page(function App({ Component }) {
           href="https://fonts.googleapis.com/css2?family=Fredoka&family=Nunito:wght@400;600;700;800&display=swap"
           rel="stylesheet"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css"
-        />
         <link rel="stylesheet" href="/styles.css" />
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+          defer
+        />
+        <script>
+          {"document.addEventListener('DOMContentLoaded', () => hljs.highlightAll())"}
+        </script>
       </head>
       <body>
         <ThemeInitializer />
