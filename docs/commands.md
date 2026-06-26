@@ -1,5 +1,6 @@
 # Commands
 
+- **Dependencies:** `deno add *` or `deno add npm:*` for npm packages
 - **Lint/Format/Check:** `deno task check` (runs fmt, lint, and type checking)
 - **Build:** `deno task build`
 - **Dev Server:** `deno task dev` (runs on `http://localhost:5173/` by default)
