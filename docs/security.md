@@ -35,7 +35,7 @@ Required permission: `public_repo` (no additional scopes needed).
 ## Testing
 
 ```bash
-deno test -A tests/security_test.ts
+deno task test
 ```
 
 Covers: XSS protection, input validation, path traversal, XML escaping, GitHub

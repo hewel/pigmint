@@ -17,7 +17,8 @@
 - `islands/` — Interactive components hydrated on the client.
 - `components/` — Stateless UI components.
 - `lib/` — Business logic and data access.
-  - `posts.ts` — Reads, parses, and sorts Markdown posts from `posts/`.
+  - `posts.ts` — Reads generated post data from `lib/posts.generated.ts`.
+  - `post_types.ts` — Shared post data types for generated and runtime code.
   - `security.ts` — Input validation, escaping, rate limiting.
 - `posts/` — Markdown blog entries. Frontmatter must include `title`, `date`,
   and `excerpt`.

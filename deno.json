@@ -1,7 +1,10 @@
 {
   "nodeModulesDir": "manual",
   "tasks": {
-    "check": "deno fmt --check . && deno lint . && deno check",
+    "check": {
+      "command": "deno fmt --check . && deno lint . && deno check",
+      "dependencies": ["gen"]
+    },
     "dev": {
       "command": "vite",
       "dependencies": ["gen:icons", "gen"]
@@ -13,15 +16,20 @@
     "gen": "deno run -A scripts/gen_content.ts",
     "gen:icons": "deno run -A scripts/generate_icons.ts",
     "start": "deno task gen && deno serve -A _fresh/server.js",
+    "test": {
+      "command": "deno test -A",
+      "dependencies": ["gen"]
+    },
     "update": "deno run -A -r jsr:@fresh/update ."
   },
   "lint": {
+    "exclude": ["./lib/posts.generated.ts"],
     "rules": {
       "tags": ["fresh", "recommended"]
     }
   },
   "fmt": {
-    "exclude": ["./static"]
+    "exclude": ["./static", "./lib/posts.generated.ts"]
   },
   "exclude": ["**/_fresh/*"],
   "imports": {
