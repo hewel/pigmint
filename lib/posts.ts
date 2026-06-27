@@ -1,12 +1,13 @@
 import { getConfig } from "../utils.ts";
 import { parse } from "@std/toml";
+import { MarkdownRoot } from "./markdown_ast.ts";
 
 export interface Post {
   slug: string;
   title: string;
   date: string;
   excerpt: string;
-  content: string;
+  content: MarkdownRoot;
   readingTime: number;
   tags: string[];
   author?: string;

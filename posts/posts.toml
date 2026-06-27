@@ -4,7 +4,375 @@ slug = "welcome-to-pigmint"
 title = "Welcome to Pigmint!"
 date = "2025-12-04"
 excerpt = "Introducing Pigmint: A fresh, colorful, and bold space for thoughts."
-content = "<h1>Hello, World! 👋</h1>\n<p>Welcome to <strong>Pigmint</strong>!</p>\n<p>I'm excited to introduce this new blog, built on the bleeding edge with\n<a href=\"https://deno.com/\">Deno</a> and <a href=\"https://fresh.deno.dev/\">Fresh</a>.</p>\n<h2>Why Pigmint?</h2>\n<p>Pigmint isn't just another minimal blog. It's loud, it's proud, and it's painted\nin pastel. Inspired by the \"Neubrutalism\" design trend (and specifically the\n\"Whalies\" theme), we believe that content should pop! 💥</p>\n<h3>What to expect?</h3>\n<ul>\n<li><strong>Bold Ideas:</strong> Just like our borders.</li>\n<li><strong>Fresh Content:</strong> Served fast, directly from the edge.</li>\n<li><strong>Colorful Vibes:</strong> Because the web doesn't have to be black and white.</li>\n</ul>\n<h2>Under the Hood</h2>\n<p>This site is running on:</p>\n<ul>\n<li><strong>Runtime:</strong> Deno 2.0</li>\n<li><strong>Framework:</strong> Fresh 2.0</li>\n<li><strong>Styling:</strong> Tailwind CSS v4</li>\n</ul>\n<h2>🤖 Built with AI</h2>\n<p>Here's a fun fact: this entire blog—from the code to the content—was created\nwith the help of AI (Gemini Cli). It's a testament to how far AI-assisted\ndevelopment has come!</p>\n<p>Stay tuned for more updates as we build this out! 🚀</p>\n"
 readingTime = 1
 tags = ["welcome","pigmint","intro","neubrutalism"]
 author = "Hewel"
+
+[posts.content]
+type = "root"
+
+[[posts.content.children]]
+type = "element"
+tagName = "h1"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "Hello, World! 👋"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "p"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "Welcome to "
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "strong"
+
+[posts.content.children.children.properties]
+
+[[posts.content.children.children.children]]
+type = "text"
+value = "Pigmint"
+
+[[posts.content.children.children]]
+type = "text"
+value = "!"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "p"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "I'm excited to introduce this new blog, built on the bleeding edge with\n"
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "a"
+
+[posts.content.children.children.properties]
+href = "https://deno.com/"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = "Deno"
+
+[[posts.content.children.children]]
+type = "text"
+value = " and "
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "a"
+
+[posts.content.children.children.properties]
+href = "https://fresh.deno.dev/"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = "Fresh"
+
+[[posts.content.children.children]]
+type = "text"
+value = "."
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "h2"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "Why Pigmint?"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "p"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "Pigmint isn't just another minimal blog. It's loud, it's proud, and it's painted\nin pastel. Inspired by the \"Neubrutalism\" design trend (and specifically the\n\"Whalies\" theme), we believe that content should pop! 💥"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "h3"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "What to expect?"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "ul"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "li"
+
+[posts.content.children.children.properties]
+
+[[posts.content.children.children.children]]
+type = "element"
+tagName = "strong"
+
+[posts.content.children.children.children.properties]
+
+[[posts.content.children.children.children.children]]
+type = "text"
+value = "Bold Ideas:"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = " Just like our borders."
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "li"
+
+[posts.content.children.children.properties]
+
+[[posts.content.children.children.children]]
+type = "element"
+tagName = "strong"
+
+[posts.content.children.children.children.properties]
+
+[[posts.content.children.children.children.children]]
+type = "text"
+value = "Fresh Content:"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = " Served fast, directly from the edge."
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "li"
+
+[posts.content.children.children.properties]
+
+[[posts.content.children.children.children]]
+type = "element"
+tagName = "strong"
+
+[posts.content.children.children.children.properties]
+
+[[posts.content.children.children.children.children]]
+type = "text"
+value = "Colorful Vibes:"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = " Because the web doesn't have to be black and white."
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "h2"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "Under the Hood"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "p"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "This site is running on:"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "ul"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "li"
+
+[posts.content.children.children.properties]
+
+[[posts.content.children.children.children]]
+type = "element"
+tagName = "strong"
+
+[posts.content.children.children.children.properties]
+
+[[posts.content.children.children.children.children]]
+type = "text"
+value = "Runtime:"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = " Deno 2.0"
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "li"
+
+[posts.content.children.children.properties]
+
+[[posts.content.children.children.children]]
+type = "element"
+tagName = "strong"
+
+[posts.content.children.children.children.properties]
+
+[[posts.content.children.children.children.children]]
+type = "text"
+value = "Framework:"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = " Fresh 2.0"
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children.children]]
+type = "element"
+tagName = "li"
+
+[posts.content.children.children.properties]
+
+[[posts.content.children.children.children]]
+type = "element"
+tagName = "strong"
+
+[posts.content.children.children.children.properties]
+
+[[posts.content.children.children.children.children]]
+type = "text"
+value = "Styling:"
+
+[[posts.content.children.children.children]]
+type = "text"
+value = " Tailwind CSS v4"
+
+[[posts.content.children.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "h2"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "🤖 Built with AI"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "p"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "Here's a fun fact: this entire blog—from the code to the content—was created\nwith the help of AI (Gemini Cli). It's a testament to how far AI-assisted\ndevelopment has come!"
+
+[[posts.content.children]]
+type = "text"
+value = "\n"
+
+[[posts.content.children]]
+type = "element"
+tagName = "p"
+
+[posts.content.children.properties]
+
+[[posts.content.children.children]]
+type = "text"
+value = "Stay tuned for more updates as we build this out! 🚀"

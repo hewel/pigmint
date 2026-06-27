@@ -1,16 +1,20 @@
 import { extract } from "@std/front-matter/any";
 import { stringify } from "@std/toml";
 import { join } from "@std/path";
-import { markdownToHtml } from "satteri";
+import { markdownToHast } from "satteri";
 import { getConfig } from "../utils.ts";
 import { escapeXml } from "../lib/security.ts";
+import {
+  MarkdownRoot,
+  stripMarkdownAstPositions,
+} from "../lib/markdown_ast.ts";
 
 interface Post {
   slug: string;
   title: string;
   date: string;
   excerpt: string;
-  content: string;
+  content: MarkdownRoot;
   readingTime: number;
   tags: string[];
   author?: string;
@@ -53,7 +57,7 @@ async function main() {
         processedBody = processedBody.substring(titleHeading.length).trim();
       }
 
-      const { html } = markdownToHtml(processedBody, {
+      const hast = markdownToHast(processedBody, {
         features: { gfm: true },
       });
 
@@ -62,7 +66,7 @@ async function main() {
         title: attributes.title,
         date: attributes.date,
         excerpt: attributes.excerpt,
-        content: html,
+        content: stripMarkdownAstPositions(hast),
         readingTime: calculateReadingTime(body),
         tags: attributes.tags || [],
         author: attributes.author || "Anonymous",
