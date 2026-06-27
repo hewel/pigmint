@@ -6,6 +6,7 @@ import {
   MarkdownRoot,
   stripMarkdownAstPositions,
 } from "../lib/markdown_ast.ts";
+import { getPost } from "../lib/posts.ts";
 
 Deno.test("stripMarkdownAstPositions removes generated source positions", () => {
   const ast = markdownToHast(
@@ -45,10 +46,26 @@ Deno.test("MarkdownRenderer renders common HAST nodes as Preact HTML", () => {
     html,
     '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono dark:bg-gray-700 dark:text-gray-200">two</code>',
   );
+  assertEquals(html.includes("shiki"), false);
   assertStringIncludes(
     html,
     '<a href="https://deno.com" class="text-whalies-dark dark:text-whalies-default underline decoration-2 decoration-whalies-default dark:decoration-whalies-dark hover:text-whalies-default dark:hover:text-whalies-dark transition-colors duration-200">Deno</a>',
   );
+});
+
+Deno.test("MarkdownRenderer renders generated Shiki code blocks", () => {
+  const post = getPost("code-block-test");
+  if (!post) {
+    throw new Error("Expected code-block-test post to be generated");
+  }
+
+  const html = renderToString(<MarkdownRenderer content={post.content} />);
+
+  assertStringIncludes(html, "shiki shiki-themes");
+  assertStringIncludes(html, "catppuccin-latte");
+  assertStringIncludes(html, "catppuccin-macchiato");
+  assertStringIncludes(html, "--shiki-dark");
+  assertStringIncludes(html, "pub");
 });
 
 Deno.test("MarkdownRenderer drops raw HTML and unsafe properties", () => {

@@ -1,15 +1,125 @@
 import { extract } from "@std/front-matter/any";
 import { join } from "@std/path";
 import { markdownToHast } from "satteri";
+import { codeToHast } from "shiki";
+import type {
+  MarkdownElement,
+  MarkdownNode,
+  MarkdownRoot,
+} from "../lib/markdown_ast.ts";
 import { getConfig } from "../utils.ts";
 import { escapeXml } from "../lib/security.ts";
 import { stripMarkdownAstPositions } from "../lib/markdown_ast.ts";
 import type { Post } from "../lib/post_types.ts";
 
+const SHIKI_THEMES = {
+  light: "catppuccin-latte",
+  dark: "catppuccin-frappe",
+} as const;
+
 function calculateReadingTime(content: string): number {
   const wordsPerMinute = 200;
   const words = content.trim().split(/\s+/).length;
   return Math.ceil(words / wordsPerMinute);
+}
+
+async function highlightCodeBlocks(node: MarkdownNode): Promise<MarkdownNode> {
+  if (node.type !== "root" && node.type !== "element") {
+    return node;
+  }
+
+  const children = await Promise.all(
+    node.children?.map((child) => highlightCodeBlocks(child)) ?? [],
+  );
+
+  const nextNode = { ...node, children };
+  if (nextNode.type !== "element" || nextNode.tagName !== "pre") {
+    return nextNode;
+  }
+
+  const codeElement = getCodeElement(nextNode);
+  if (!codeElement) {
+    return nextNode;
+  }
+
+  return await highlightCodeElement(codeElement, nextNode);
+}
+
+async function highlightMarkdownRoot(
+  root: MarkdownRoot,
+): Promise<MarkdownRoot> {
+  return await highlightCodeBlocks(root) as MarkdownRoot;
+}
+
+function getCodeElement(preElement: MarkdownElement): MarkdownElement | null {
+  const codeElement = preElement.children?.find((child) =>
+    child.type === "element" && child.tagName === "code"
+  );
+
+  return codeElement?.type === "element" ? codeElement : null;
+}
+
+async function highlightCodeElement(
+  codeElement: MarkdownElement,
+  fallbackElement: MarkdownElement,
+): Promise<MarkdownElement> {
+  const code = getTextContent(codeElement);
+  const lang = getCodeLanguage(codeElement) ?? "text";
+  const shikiRoot = await codeToHastWithFallback(code, lang);
+  const highlightedPre = shikiRoot.children.find((child) =>
+    child.type === "element" && child.tagName === "pre"
+  );
+
+  return highlightedPre?.type === "element" ? highlightedPre : fallbackElement;
+}
+
+async function codeToHastWithFallback(
+  code: string,
+  lang: string,
+): Promise<MarkdownRoot> {
+  try {
+    return await codeToHast(code, {
+      lang,
+      themes: SHIKI_THEMES,
+    }) as MarkdownRoot;
+  } catch (error) {
+    if (lang === "text") {
+      throw error;
+    }
+
+    return await codeToHast(code, {
+      lang: "text",
+      themes: SHIKI_THEMES,
+    }) as MarkdownRoot;
+  }
+}
+
+function getTextContent(node: MarkdownNode): string {
+  switch (node.type) {
+    case "text":
+      return node.value;
+    case "root":
+    case "element":
+      return node.children?.map(getTextContent).join("") ?? "";
+    default:
+      return "";
+  }
+}
+
+function getCodeLanguage(codeElement: MarkdownElement): string | undefined {
+  const dataLang = codeElement.data?.lang;
+  if (typeof dataLang === "string" && dataLang.trim()) {
+    return dataLang.trim();
+  }
+
+  const className = codeElement.properties?.className ??
+    codeElement.properties?.class;
+  const classes = Array.isArray(className) ? className : [className];
+  const languageClass = classes
+    .flatMap((value) => String(value ?? "").split(/\s+/))
+    .find((value) => value.startsWith("language-"));
+
+  return languageClass?.replace(/^language-/, "") || undefined;
 }
 
 async function main() {
@@ -46,13 +156,16 @@ async function main() {
       const hast = markdownToHast(processedBody, {
         features: { gfm: true },
       });
+      const content = await highlightMarkdownRoot(
+        stripMarkdownAstPositions(hast),
+      );
 
       posts.push({
         slug,
         title: attributes.title,
         date: attributes.date,
         excerpt: attributes.excerpt,
-        content: stripMarkdownAstPositions(hast),
+        content,
         readingTime: calculateReadingTime(body),
         tags: attributes.tags || [],
         author: attributes.author || "Anonymous",

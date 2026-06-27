@@ -25,9 +25,8 @@ This will watch the project directory and restart as necessary.
 - [x] **Styling Engine:** Integrate **Tailwind CSS** for rapid, modern UI
       development.
 - [x] **Content Management:** Implement a Markdown-based system for blog posts.
-  - [x] **Advanced Rendering:** Use `marked` to parse Markdown to lexer then
-        render to preact components and rehype-highlight for syntax
-        highlighting.
+  - [x] **Advanced Rendering:** Use `satteri` to parse Markdown to HAST, Shiki
+        for build-time syntax highlighting, then render to Preact components.
 - [ ] **Markdown Parsing Enhancements:**
   - [ ] Replace `react-markdown` with a more efficient parser.
 - [x] **Lighthouse Optimization:** Aim for 100/100 scores in performance,

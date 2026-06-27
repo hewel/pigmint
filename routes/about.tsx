@@ -70,8 +70,8 @@ export default define.page(function AboutPage({ data }: PageProps<Data>) {
                   "Whalies" inspired theme.
                 </li>
                 <li>
-                  <strong>Satteri & highlight.js:</strong>{" "}
-                  Build-time Markdown rendering with client-side code
+                  <strong>Satteri & Shiki:</strong>{" "}
+                  Build-time Markdown rendering with dual-theme code
                   highlighting.
                 </li>
                 <li>

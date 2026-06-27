@@ -87,71 +87,21 @@ li {
   text-wrap: pretty;
 }
 
-/* Highlight.js Custom Theme using CSS Variables */
-.hljs-comment,
-.hljs-quote {
-  color: var(--code-comment);
-  font-style: italic;
+/* Shiki dual-theme code highlighting */
+.shiki,
+.shiki span {
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
 }
 
-.hljs-doctag,
-.hljs-keyword,
-.hljs-formula {
-  color: var(--code-keyword);
-}
-
-.hljs-section,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-deletion,
-.hljs-subst {
-  color: var(--code-keyword);
-}
-
-.hljs-literal {
-  color: var(--code-keyword);
-}
-
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta .hljs-string {
-  color: var(--code-string);
-}
-
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
-  color: var(--code-number);
-}
-
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-title {
-  color: var(--code-function);
-}
-
-.hljs-built_in,
-.hljs-title.class_,
-.hljs-class .hljs-title {
-  color: var(--code-number);
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-.hljs-strong {
-  font-weight: bold;
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
 /* Cute Logo Animations */

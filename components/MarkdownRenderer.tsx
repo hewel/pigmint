@@ -78,9 +78,9 @@ function normalizeProperties(
         continue;
       }
 
-      if (name === "className") {
+      if (name === "className" || name === "class") {
         normalized.class = mergeClassNames(
-          baseClass,
+          normalized.class ?? baseClass,
           normalizeClassName(value),
         );
         continue;

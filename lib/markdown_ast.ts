@@ -16,6 +16,7 @@ export interface MarkdownElement {
   tagName: string;
   properties?: Record<string, MarkdownPropertyValue>;
   children?: MarkdownNode[];
+  data?: Record<string, unknown> | undefined;
 }
 
 export interface MarkdownText {

@@ -47,6 +47,7 @@
     "@preact/signals": "npm:@preact/signals@^2.9.2",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.1.2",
     "satteri": "npm:satteri@^0.9.3",
+    "shiki": "npm:shiki@^4.3.0",
     "swr": "npm:swr@^2.4.2",
     "vite": "npm:vite@^7.3.6",
     "tailwindcss": "npm:tailwindcss@^4.3.1",
