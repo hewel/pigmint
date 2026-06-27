@@ -16,7 +16,7 @@ export default function Button({
   variant = "primary",
 }: ButtonProps) {
   const baseStyles =
-    "inline-block px-4 py-2 rounded-full border-2 border-whalies-navy font-cartoon font-bold transition-all hover:-translate-y-1 hover:shadow-cartoon-hover active:translate-y-0 active:shadow-none";
+    "inline-block px-4 py-2 rounded-full border-2 border-whalies-navy font-cartoon font-bold transition-[transform,box-shadow,background-color,color] hover:-translate-y-1 hover:shadow-cartoon-hover active:translate-y-0 active:shadow-none";
 
   const variants = {
     primary:

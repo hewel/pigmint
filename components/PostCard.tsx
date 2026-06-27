@@ -11,7 +11,7 @@ export default function PostCard({ post, colorClass }: PostCardProps) {
   return (
     <article
       aria-label={`Post titled ${post.title}`}
-      class={`flex flex-col h-full p-6 border-4 border-whalies-navy rounded-4xl ${colorClass} shadow-cartoon hover:translate-y-1 hover:translate-x-1 hover:shadow-cartoon-hover transition-all duration-200 group`}
+      class={`flex flex-col h-full p-6 border-4 border-whalies-navy rounded-4xl ${colorClass} shadow-cartoon hover:translate-y-1 hover:translate-x-1 hover:shadow-cartoon-hover transition-[transform,box-shadow] duration-200 group`}
     >
       {/* Tags at the top */}
       <div class="flex flex-wrap gap-2 mb-4">

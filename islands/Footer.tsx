@@ -57,7 +57,7 @@ export default function Footer() {
 
   return (
     <footer class="bg-whalies-navy text-white py-12 mt-auto">
-      <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="max-w-5xl xl:max-w-7xl 2xl:max-w-[92rem] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div class="text-center md:text-left">
           <h2 class="font-cartoon text-2xl mb-2">PigMint Blog</h2>
           <p class="text-gray-400 text-sm max-w-xs mx-auto md:mx-0">

@@ -12,7 +12,7 @@ export default function Tag({
   className = "",
 }: TagProps) {
   const baseStyles =
-    "inline-block px-3 py-1 rounded-full border-2 border-whalies-navy text-xs font-cartoon font-black text-whalies-navy transition-all";
+    "inline-block px-3 py-1 rounded-full border-2 border-whalies-navy text-xs font-cartoon font-black text-whalies-navy transition-[transform,box-shadow,background-color,color]";
   const activeStyles =
     "bg-whalies-navy text-white shadow-cartoon hover:-translate-y-1 hover:shadow-cartoon-hover";
   const inactiveStyles =

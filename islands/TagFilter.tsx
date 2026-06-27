@@ -23,7 +23,7 @@ export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
         <button
           type="button"
           onClick={toggleDropdown}
-          class="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-3 border-whalies-navy rounded-2xl font-cartoon font-bold text-whalies-navy dark:text-gray-200 shadow-cartoon transition-all active:translate-y-0.5 active:shadow-cartoon-hover"
+          class="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-3 border-whalies-navy rounded-2xl font-cartoon font-bold text-whalies-navy dark:text-gray-200 shadow-cartoon transition-[transform,box-shadow] active:translate-y-0.5 active:shadow-cartoon-hover"
         >
           <span class="flex items-center gap-2">
             <FunnelIcon weight="duotone" className="text-xl" />
@@ -83,7 +83,7 @@ export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
       <div class="hidden md:flex flex-wrap justify-center gap-3">
         <a
           href="/"
-          class={`inline-block px-4 py-2 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black transition-all hover:-translate-y-1 ${
+          class={`inline-block px-4 py-2 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black transition-[transform,box-shadow,background-color,color] hover:-translate-y-1 ${
             !selectedTag
               ? "bg-whalies-navy text-white shadow-cartoon"
               : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm hover:shadow-cartoon"
@@ -95,7 +95,7 @@ export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
           <a
             key={tag}
             href={`/?tag=${tag}`}
-            class={`inline-block px-4 py-2 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black transition-all hover:-translate-y-1 ${
+            class={`inline-block px-4 py-2 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black transition-[transform,box-shadow,background-color,color] hover:-translate-y-1 ${
               selectedTag === tag
                 ? "bg-whalies-navy text-white shadow-cartoon"
                 : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm hover:shadow-cartoon"

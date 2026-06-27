@@ -49,23 +49,27 @@ export default define.page(function Home({ data }: PageProps<Data>) {
         />
       </Head>
       <Layout>
-        <div class="px-4 py-16 mx-auto max-w-5xl flex flex-col items-center justify-center">
-          <div class="text-center mb-24 relative">
-            {/* Mascot Placeholder */}
-            <div class="logo-mascot w-48 h-48 mx-auto mb-8 bg-pastel-blue rounded-full border-4 border-whalies-navy flex items-center justify-center">
-              <GhostIcon
-                weight="duotone"
-                size={96}
-                className="text-whalies-navy"
-              />
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-12 md:py-16 mx-auto max-w-5xl xl:max-w-7xl 2xl:max-w-[92rem] flex flex-col items-center justify-center">
+          <div class="w-full mb-20 xl:mb-24 relative grid items-center gap-10 xl:grid-cols-[minmax(0,1fr)_22rem]">
+            <div class="text-center xl:text-left xl:max-w-3xl">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl text-whalies-text mb-6 leading-tight font-cartoon drop-shadow-lg text-balance">
+                Welcome to the PigMint Blog
+              </h1>
+              <p class="max-w-2xl mx-auto xl:mx-0 mb-8 text-lg md:text-xl font-body font-bold text-whalies-navy/70 dark:text-gray-300 text-pretty">
+                Playful notes on web development, design, and the bits between.
+              </p>
+              <Button href="#posts" className="text-xl px-8 py-4">
+                Start Reading
+              </Button>
             </div>
 
-            <h1 class="text-5xl md:text-6xl lg:text-7xl text-whalies-text mb-6 leading-tight font-cartoon drop-shadow-lg">
-              Welcome to the PigMint Blog
-            </h1>
-            <Button href="#posts" className="text-xl px-8 py-4">
-              Start Reading
-            </Button>
+            <div class="logo-mascot w-44 h-44 md:w-48 md:h-48 xl:w-72 xl:h-72 mx-auto bg-pastel-blue rounded-full border-4 border-whalies-navy flex items-center justify-center">
+              <GhostIcon
+                weight="duotone"
+                size={144}
+                className="text-whalies-navy w-24 h-24 xl:w-36 xl:h-36"
+              />
+            </div>
           </div>
 
           <section
@@ -92,12 +96,12 @@ export default define.page(function Home({ data }: PageProps<Data>) {
               )
               : (
                 <>
-                  <h2 class="text-4xl font-cartoon text-whalies-text mb-8 drop-shadow-sm">
+                  <h2 class="text-4xl font-cartoon text-whalies-text mb-8 drop-shadow-sm text-center text-balance">
                     {selectedTag
                       ? `Posts tagged #${selectedTag}`
                       : "Recent Posts"}
                   </h2>
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-screen-xl">
+                  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),21rem))] justify-center gap-6 xl:gap-8 w-full">
                     {posts.map((post, index) => {
                       const colorClass = cardColors[index % cardColors.length];
                       return (

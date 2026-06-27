@@ -27,14 +27,14 @@ export default define.page(function AboutPage({ data }: PageProps<Data>) {
         />
       </Head>
       <Layout>
-        <div class="px-4 py-12 mx-auto max-w-5xl">
-          <article class="bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
-            <header class="mb-8 text-center">
-              <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-cartoon font-black text-whalies-navy dark:text-gray-100">
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-12 mx-auto max-w-6xl xl:max-w-7xl">
+          <article class="max-w-4xl mx-auto bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
+            <header class="max-w-3xl mx-auto mb-8 text-center">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-cartoon font-black text-whalies-navy dark:text-gray-100 text-balance">
                 About PigMint
               </h1>
             </header>
-            <div class="markdown-content mx-auto text-left">
+            <div class="markdown-content max-w-3xl mx-auto text-left text-pretty">
               <p>
                 Welcome to PigMint Blog! This project serves as a modern,
                 playful, and educational platform built using cutting-edge web

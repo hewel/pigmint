@@ -68,6 +68,8 @@
 body {
   @apply font-body bg-whalies-bg text-whalies-text transition-colors
     duration-300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -77,6 +79,12 @@ h4,
 h5,
 h6 {
   @apply font-cartoon;
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 /* Highlight.js Custom Theme using CSS Variables */
