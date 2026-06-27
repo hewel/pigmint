@@ -31,12 +31,24 @@ Deno.test("MarkdownRenderer renders common HAST nodes as Preact HTML", () => {
 
   const html = renderToString(<MarkdownRenderer content={content} />);
 
-  assertStringIncludes(html, '<div class="markdown-body">');
-  assertStringIncludes(html, "<h2>Hello</h2>");
+  assertStringIncludes(html, "<div>");
+  assertStringIncludes(
+    html,
+    '<h2 class="text-3xl mb-3 mt-6 text-whalies-navy dark:text-gray-100">Hello</h2>',
+  );
   assertStringIncludes(html, "<strong>bold</strong>");
-  assertStringIncludes(html, "<ul>");
-  assertStringIncludes(html, "<code>two</code>");
-  assertStringIncludes(html, '<a href="https://deno.com">Deno</a>');
+  assertStringIncludes(
+    html,
+    '<ul class="list-disc list-outside pl-5 mb-4 dark:text-gray-300">',
+  );
+  assertStringIncludes(
+    html,
+    '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono dark:bg-gray-700 dark:text-gray-200">two</code>',
+  );
+  assertStringIncludes(
+    html,
+    '<a href="https://deno.com" class="text-whalies-dark dark:text-whalies-default underline decoration-2 decoration-whalies-default dark:decoration-whalies-dark hover:text-whalies-default dark:hover:text-whalies-dark transition-colors duration-200">Deno</a>',
+  );
 });
 
 Deno.test("MarkdownRenderer drops raw HTML and unsafe properties", () => {
@@ -66,5 +78,6 @@ Deno.test("MarkdownRenderer drops raw HTML and unsafe properties", () => {
   assertEquals(html.includes("onClick"), false);
   assertEquals(html.includes("onclick"), false);
   assertEquals(html.includes("<span"), false);
-  assertStringIncludes(html, '<a class="btn primary">unsafe link</a>');
+  assertStringIncludes(html, "btn primary");
+  assertStringIncludes(html, ">unsafe link</a>");
 });

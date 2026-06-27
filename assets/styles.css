@@ -79,46 +79,6 @@ h6 {
   @apply font-cartoon;
 }
 
-.markdown-body h1 {
-  @apply text-4xl mb-4 text-whalies-navy dark:text-gray-100;
-}
-.markdown-body h2 {
-  @apply text-3xl mb-3 mt-6 text-whalies-navy dark:text-gray-100;
-}
-.markdown-body h3 {
-  @apply text-2xl mb-2 mt-4 text-whalies-navy dark:text-gray-100;
-}
-.markdown-body p {
-  @apply mb-4 leading-relaxed dark:text-gray-300;
-}
-.markdown-body ul {
-  @apply list-disc list-outside pl-5 mb-4 dark:text-gray-300;
-}
-.markdown-body ol {
-  @apply list-decimal list-outside pl-5 mb-4 dark:text-gray-300;
-}
-.markdown-body a {
-  @apply text-whalies-dark dark:text-whalies-default underline decoration-2
-    decoration-whalies-default dark:decoration-whalies-dark
-    hover:text-whalies-default dark:hover:text-whalies-dark transition-colors
-    duration-200;
-}
-.markdown-body code {
-  @apply bg-gray-100 px-1 py-0.5 rounded text-sm font-mono dark:bg-gray-700
-    dark:text-gray-200;
-}
-.markdown-body pre {
-  @apply p-4 rounded-4xl overflow-x-auto mb-4 border-2 border-whalies-navy
-    shadow-cartoon;
-  background-color: var(--code-bg);
-  color: var(--code-text);
-}
-
-.markdown-body pre code {
-  @apply bg-transparent p-0 border-none shadow-none font-mono text-sm;
-  color: inherit;
-}
-
 /* Highlight.js Custom Theme using CSS Variables */
 .hljs-comment,
 .hljs-quote {
