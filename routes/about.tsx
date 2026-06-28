@@ -27,7 +27,7 @@ export default define.page(function AboutPage({ data }: PageProps<Data>) {
         />
       </Head>
       <Layout>
-        <div class="w-full px-4 sm:px-6 lg:px-8 py-12 mx-auto max-w-6xl xl:max-w-7xl">
+        <div class="w-full px-2 sm:px-6 lg:px-8 py-6 md:py-12 mx-auto max-w-6xl xl:max-w-7xl">
           <article class="max-w-4xl mx-auto bg-white dark:bg-gray-800 border-4 border-whalies-navy dark:border-gray-500 rounded-4xl p-6 md:p-12 shadow-cartoon text-whalies-navy dark:text-gray-100">
             <header class="max-w-3xl mx-auto mb-8 text-center">
               <h1 class="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight font-cartoon font-black text-whalies-navy dark:text-gray-100 text-balance">

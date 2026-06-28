@@ -11,7 +11,7 @@ export default function Layout({ children, showBackButton }: LayoutProps) {
   return (
     <div class="flex flex-col min-h-screen">
       <Navbar showBackButton={showBackButton} />
-      <main class="grow pt-24">
+      <main class="grow pt-16 md:pt-24">
         {children}
       </main>
       <Footer />

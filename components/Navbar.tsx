@@ -7,7 +7,7 @@ interface NavbarProps {
 
 export default function Navbar({ showBackButton }: NavbarProps) {
   return (
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 px-6 py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-2 border-whalies-navy rounded-full shadow-cartoon">
+    <nav class="fixed top-2 md:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 px-6 py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-2 border-whalies-navy rounded-full shadow-cartoon">
       {showBackButton
         ? (
           <a

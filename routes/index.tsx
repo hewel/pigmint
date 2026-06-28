@@ -49,16 +49,19 @@ export default define.page(function Home({ data }: PageProps<Data>) {
         />
       </Head>
       <Layout>
-        <div class="w-full px-4 sm:px-6 lg:px-8 py-12 md:py-16 mx-auto max-w-5xl xl:max-w-7xl 2xl:max-w-[92rem] flex flex-col items-center justify-center">
-          <div class="w-full mb-20 xl:mb-24 relative grid items-center gap-10 xl:grid-cols-[minmax(0,1fr)_22rem]">
+        <div class="w-full px-2 sm:px-6 lg:px-8 py-6 md:py-16 mx-auto max-w-5xl xl:max-w-7xl 2xl:max-w-368 flex flex-col items-center justify-center">
+          <div class="w-full mb-10 md:mb-20 xl:mb-24 relative grid items-center gap-6 md:gap-10 xl:grid-cols-[minmax(0,1fr)_22rem]">
             <div class="text-center xl:text-left xl:max-w-3xl">
-              <h1 class="text-5xl md:text-6xl lg:text-7xl text-whalies-text mb-6 leading-tight font-cartoon drop-shadow-lg text-balance">
+              <h1 class="text-5xl md:text-6xl lg:text-7xl text-whalies-text mb-4 md:mb-6 leading-tight font-cartoon drop-shadow-lg text-balance">
                 Welcome to the PigMint Blog
               </h1>
-              <p class="max-w-2xl mx-auto xl:mx-0 mb-8 text-lg md:text-xl font-body font-bold text-whalies-navy/70 dark:text-gray-300 text-pretty">
+              <p class="max-w-2xl mx-auto xl:mx-0 mb-6 md:mb-8 text-lg md:text-xl font-body font-bold text-whalies-navy/70 dark:text-gray-300 text-pretty">
                 Playful notes on web development, design, and the bits between.
               </p>
-              <Button href="#posts" className="text-xl px-8 py-4">
+              <Button
+                href="#posts"
+                className="text-base px-6 py-3 md:text-xl md:px-8 md:py-4"
+              >
                 Start Reading
               </Button>
             </div>
@@ -76,7 +79,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
             id="posts"
             class="w-full flex flex-col items-center scroll-mt-32"
           >
-            <div class="mb-12 w-full max-w-xl mx-auto md:max-w-none">
+            <div class="mb-6 md:mb-12 w-full max-w-xl mx-auto md:max-w-none">
               <TagFilter allTags={allTags} selectedTag={selectedTag} />
             </div>
 
@@ -101,7 +104,7 @@ export default define.page(function Home({ data }: PageProps<Data>) {
                       ? `Posts tagged #${selectedTag}`
                       : "Recent Posts"}
                   </h2>
-                  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),21rem))] justify-center gap-6 xl:gap-8 w-full">
+                  <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(18rem,21rem))] justify-center gap-6 xl:gap-8 w-full">
                     {posts.map((post, index) => {
                       const colorClass = cardColors[index % cardColors.length];
                       return (
