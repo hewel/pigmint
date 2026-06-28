@@ -11,6 +11,10 @@ interface TagFilterProps {
 
 export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
   const isOpen = useSignal(false);
+  const tagOuterStyles =
+    "inline-block group/filter-tag rounded-full align-middle";
+  const tagBaseStyles =
+    "inline-block px-4 py-2 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black transition-[transform,box-shadow,background-color,color] group-hover/filter-tag:-translate-y-1";
 
   const toggleDropdown = () => {
     isOpen.value = !isOpen.value;
@@ -83,25 +87,33 @@ export default function TagFilter({ allTags, selectedTag }: TagFilterProps) {
       <div class="hidden md:flex flex-wrap justify-center gap-3">
         <a
           href="/"
-          class={`inline-block px-4 py-2 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black transition-[transform,box-shadow,background-color,color] hover:-translate-y-1 ${
-            !selectedTag
-              ? "bg-whalies-navy text-white shadow-cartoon"
-              : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm hover:shadow-cartoon"
-          }`}
+          class={tagOuterStyles}
         >
-          All
+          <span
+            class={`${tagBaseStyles} ${
+              !selectedTag
+                ? "bg-whalies-navy text-white shadow-cartoon"
+                : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm group-hover/filter-tag:shadow-cartoon"
+            }`}
+          >
+            All
+          </span>
         </a>
         {allTags.map((tag) => (
           <a
             key={tag}
             href={`/?tag=${tag}`}
-            class={`inline-block px-4 py-2 rounded-full border-2 border-whalies-navy text-sm font-cartoon font-black transition-[transform,box-shadow,background-color,color] hover:-translate-y-1 ${
-              selectedTag === tag
-                ? "bg-whalies-navy text-white shadow-cartoon"
-                : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm hover:shadow-cartoon"
-            }`}
+            class={tagOuterStyles}
           >
-            #{tag}
+            <span
+              class={`${tagBaseStyles} ${
+                selectedTag === tag
+                  ? "bg-whalies-navy text-white shadow-cartoon"
+                  : "bg-white dark:bg-gray-800 text-whalies-navy dark:text-gray-200 shadow-sm group-hover/filter-tag:shadow-cartoon"
+              }`}
+            >
+              #{tag}
+            </span>
           </a>
         ))}
       </div>
