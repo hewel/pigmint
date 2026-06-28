@@ -63,7 +63,7 @@ Deno.test("MarkdownRenderer renders generated Shiki code blocks", () => {
 
   assertStringIncludes(html, "shiki shiki-themes");
   assertStringIncludes(html, "catppuccin-latte");
-  assertStringIncludes(html, "catppuccin-macchiato");
+  assertStringIncludes(html, "catppuccin-frappe");
   assertStringIncludes(html, "--shiki-dark");
   assertStringIncludes(html, "pub");
 });
